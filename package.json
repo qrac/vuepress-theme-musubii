@@ -24,8 +24,9 @@
     "url": "https://qranoko.jp"
   },
   "scripts": {
-    "dev": "vuepress dev example --temp example/.temp",
-    "build": "vuepress build example --temp example/.temp"
+    "dev": "vuepress dev example",
+    "build": "vuepress build example",
+    "clean": "rmtrash ./example/.temp ./example/.vuepress/dist"
   },
   "browserslist": [
     "> 3% in JP",
