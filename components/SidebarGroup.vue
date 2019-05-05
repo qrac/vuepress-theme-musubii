@@ -28,26 +28,22 @@
       <span class="arrow" v-if="collapsable" :class="open ? 'down' : 'right'"></span>
     </p>
 
-    <DropdownTransition>
-      <SidebarLinks
-        class="sidebar-group-items"
-        :items="item.children"
-        v-if="open || !collapsable"
-        :sidebarDepth="item.sidebarDepth"
-        :depth="depth + 1"
-      />
-    </DropdownTransition>
+    <SidebarLinks
+      class="sidebar-group-items"
+      :items="item.children"
+      v-if="open || !collapsable"
+      :sidebarDepth="item.sidebarDepth"
+      :depth="depth + 1"
+    />
   </section>
 </template>
 
 <script>
 import { isActive } from "../util";
-import DropdownTransition from "./DropdownTransition.vue";
 
 export default {
   name: "SidebarGroup",
   props: ["item", "open", "collapsable", "depth"],
-  components: { DropdownTransition },
   // ref: https://vuejs.org/v2/guide/components-edge-cases.html#Circular-References-Between-Components
   beforeCreate() {
     this.$options.components.SidebarLinks = require("./SidebarLinks.vue").default;

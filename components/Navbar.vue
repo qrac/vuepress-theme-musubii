@@ -1,30 +1,29 @@
 <template>
-  <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
-
-    <router-link :to="$localePath" class="home-link">
-      <img
-        class="logo"
-        v-if="$site.themeConfig.logo"
-        :src="$withBase($site.themeConfig.logo)"
-        :alt="$siteTitle"
-      >
-      <span
-        ref="siteName"
-        class="site-name"
-        v-if="$siteTitle"
-        :class="{ 'can-hide': $site.themeConfig.logo }"
-      >{{ $siteTitle }}</span>
-    </router-link>
-
+  <header class="section is-header">
     <div
-      class="links"
-      :style="linksWrapMaxWidth ? {
-        'max-width': linksWrapMaxWidth + 'px'
-      } : {}"
+      class="inner is-padding-top-lg is-padding-right-sm is-padding-bottom-lg is-padding-left-sm"
     >
-      <SearchBox/>
-      <NavLinks class="can-hide"/>
+      <div class="box is-flex is-middle is-between">
+        <router-link :to="$localePath" class="box">
+          <img
+            class="logo"
+            v-if="$site.themeConfig.logo"
+            :src="$withBase($site.themeConfig.logo)"
+            :alt="$siteTitle"
+          >
+          <span
+            ref="siteName"
+            class="site-name"
+            v-else-if="$siteTitle"
+            :class="{ 'can-hide': $site.themeConfig.logo }"
+          >{{ $siteTitle }}</span>
+        </router-link>
+        <div class="box is-flex is-middle">
+          <SearchBox/>
+          <NavLinks class="can-hide"/>
+          <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -70,3 +69,16 @@ function css(el, property) {
   return win.getComputedStyle(el, null)[property];
 }
 </script>
+
+<style lang="scss">
+@import "@theme/styles/variables.scss";
+
+.section.is-header {
+  background-color: $primary;
+}
+
+.logo,
+.logo[src$=".svg"] {
+  width: 200px;
+}
+</style>

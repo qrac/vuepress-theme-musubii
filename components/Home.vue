@@ -135,3 +135,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+@import "@theme/styles/variables.scss";
+</style>

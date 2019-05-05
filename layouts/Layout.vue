@@ -19,10 +19,10 @@
 <script>
 import Vue from "vue";
 import nprogress from "nprogress";
-import Home from "../components/Home.vue";
-import Navbar from "../components/Navbar.vue";
-import Page from "../components/Page.vue";
-import Sidebar from "../components/Sidebar.vue";
+import Home from "@theme/components/Home.vue";
+import Navbar from "@theme/components/Navbar.vue";
+import Page from "@theme/components/Page.vue";
+import Sidebar from "@theme/components/Sidebar.vue";
 import { resolveSidebarItems } from "../util";
 
 export default {
@@ -109,5 +109,5 @@ export default {
 };
 </script>
 
-<style src="musubii/docs/css/musubii.css"></style>
+<style src="@theme/styles/index.scss" lang="scss"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
