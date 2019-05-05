@@ -1,0 +1,15 @@
+{
+  "site": {
+    "title": "MUSUBii",
+    "description": "Simple CSS Framework for JP",
+    "url": "https://musubii.qranoko.jp",
+    "og": {
+      "type": "website"
+    },
+    "twitter": {
+      "card": "summary",
+      "id": "Qrac_JP"
+    },
+    "ga": "UA-40305123-21"
+  }
+}
