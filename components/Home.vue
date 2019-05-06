@@ -28,7 +28,7 @@
               </router-link>
             </div>
             <p
-              class="text is-light is-center is-xs is-strong is-font-nunito"
+              class="text is-light is-center is-sm is-strong is-font-nunito"
               v-if="musubiiPkg.repository"
             >
               <i class="fab fa-github" aria-hidden="true"></i>
@@ -173,5 +173,13 @@ export default {
   @include tablet {
     width: 23.5em;
   }
+}
+
+.illust.is-home-point {
+  width: 12em;
+}
+
+.description.is-home-point {
+  max-width: 25.45em;
 }
 </style>
