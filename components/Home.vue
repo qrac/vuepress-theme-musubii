@@ -27,7 +27,10 @@
                 <span class="text is-weight-900 is-font-nunito">{{ data.actionText }}</span>
               </router-link>
             </div>
-            <p class="text is-light is-center is-sm is-font-nunito" v-if="musubiiPkg.repository">
+            <p
+              class="text is-light is-center is-xs is-strong is-font-nunito"
+              v-if="musubiiPkg.repository"
+            >
               <i class="fab fa-github" aria-hidden="true"></i>
               <span class="text" v-if="musubiiPkg.version">v{{ musubiiPkg.version }}・</span>
               <a class="text is-link-reverse" :href="musubiiPkg.repository">
