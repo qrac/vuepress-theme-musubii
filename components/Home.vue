@@ -1,7 +1,7 @@
 <template>
   <main class="home is-wide-lg">
     <section class="section is-hero">
-      <div class="inner is-padding-md">
+      <div class="inner is-padding-right-md is-padding-left-md">
         <div class="grid is-middle is-center is-gap-xxl">
           <div class="column is-space">
             <p class="text is-light is-weight-700 is-font-nunito" v-if="data.hero.heading1">
@@ -11,7 +11,7 @@
                 v-if="data.hero.heading2"
               >{{ data.hero.heading2 }}</span>
             </p>
-            <h1 class="text is-light is-sm" v-if="data.hero.texts">
+            <h1 class="text is-light is-line-height-lg is-sm" v-if="data.hero.texts">
               <span
                 class="text is-fablet-block"
                 v-for="text in data.hero.texts"
@@ -50,11 +50,11 @@
     </section>
 
     <section class="section is-about" v-if="data.about.heading">
-      <div class="inner-vw is-space">
+      <div class="inner is-padding-right-md is-padding-left-md is-space">
         <h2
-          class="heading is-primary is-strong is-center is-lg is-fablet-xl is-tablet-xxl"
+          class="text is-primary is-strong is-center is-lg is-fablet-xl is-tablet-xxl"
         >{{ data.about.heading }}</h2>
-        <p class="texts is-sm is-center" v-if="data.about.texts1">
+        <p class="text is-line-height-lg is-center is-sm" v-if="data.about.texts1">
           <span
             class="text is-inline-block"
             v-for="text in data.about.texts1"
@@ -71,24 +71,24 @@
     </section>
 
     <section class="section is-feature" v-for="feature in data.features" :key="feature.id">
-      <div class="inner-vw">
-        <div class="grid is-middle is-center is-gap-3x">
+      <div class="inner is-padding-right-md is-padding-left-md">
+        <div class="grid is-middle is-center is-gap-xl">
           <div class="column" v-if="feature.image">
             <img
-              class="obj is-home-point-illust is-desktop-lg is-wide-xl"
+              class="illust is-home-point is-desktop-lg is-wide-xl"
               :src="$withBase(feature.image)"
               alt="feature"
             >
           </div>
           <div class="column">
-            <div class="group is-home-point-textbox is-space">
-              <h2 class="heading is-xl" v-if="feature.heading">
+            <div class="description is-home-point is-space">
+              <h2 class="text is-xl" v-if="feature.heading">
                 <span class="text">{{ feature.heading }}</span>
-                <span class="obj is-badge is-new" v-if="feature.new === true">
-                  <span class="text">NEW</span>
+                <span class="badge is-plain is-info is-xxs" v-if="feature.new === true">
+                  <span class="text is-strong">NEW</span>
                 </span>
               </h2>
-              <p class="texts is-sm" v-if="feature.text">{{ feature.text }}</p>
+              <p class="text is-line-height-lg is-sm" v-if="feature.text">{{ feature.text }}</p>
             </div>
           </div>
         </div>
