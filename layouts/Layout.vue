@@ -1,6 +1,6 @@
 <template>
   <div class="theme-container" :class="pageClasses">
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
+    <Header v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
 
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>
@@ -13,20 +13,23 @@
       <slot name="page-top" slot="top"/>
       <slot name="page-bottom" slot="bottom"/>
     </Page>
+
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
 import nprogress from "nprogress";
+import Header from "@theme/components/Header.vue";
+import Footer from "@theme/components/Footer.vue";
 import Home from "@theme/components/Home.vue";
-import Navbar from "@theme/components/Navbar.vue";
 import Page from "@theme/components/Page.vue";
 import Sidebar from "@theme/components/Sidebar.vue";
 import { resolveSidebarItems } from "../util";
 
 export default {
-  components: { Home, Page, Sidebar, Navbar },
+  components: { Home, Page, Sidebar, Header, Footer },
 
   data() {
     return {

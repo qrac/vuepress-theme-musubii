@@ -1,33 +1,33 @@
 <template>
-  <div class="home is-wide-lg">
+  <main class="home is-wide-lg">
     <section class="section is-hero">
-      <div class="inner-soft">
-        <div class="grid is-middle is-center is-gap-6x">
-          <div class="col is-space">
-            <p class="heading is-light is-weight-700" v-if="data.hero.heading1">
+      <div class="inner is-padding-md">
+        <div class="grid is-middle is-center is-gap-xxl">
+          <div class="column is-space">
+            <p class="text is-light is-weight-700 is-font-nunito" v-if="data.hero.heading1">
               <span class="text is-block is-hero-1">{{ data.hero.heading1 }}</span>
               <span
                 class="text is-block is-hero-2"
                 v-if="data.hero.heading2"
               >{{ data.hero.heading2 }}</span>
             </p>
-            <h1 class="texts is-light is-sm" v-if="data.hero.texts">
+            <h1 class="text is-light is-sm" v-if="data.hero.texts">
               <span
                 class="text is-fablet-block"
                 v-for="text in data.hero.texts"
                 :key="text.id"
               >{{ text }}</span>
             </h1>
-            <div class="btns is-center is-lg" v-if="data.actionText && data.actionLink">
+            <div class="box is-flex is-center is-lg" v-if="data.actionText && data.actionLink">
               <router-link
-                class="btn is-plain is-round is-mobile-full is-weight-900 is-cyan is-font-nunito"
+                class="button is-plain is-hero is-round is-mobile-full"
                 :to="data.actionLink"
               >
-                <i class="fas fa-book" aria-hidden="true"></i>
-                <span class="text">{{ data.actionText }}</span>
+                <i class="fas fa-book is-margin-right-sm" aria-hidden="true"></i>
+                <span class="text is-weight-900 is-font-nunito">{{ data.actionText }}</span>
               </router-link>
             </div>
-            <p class="texts is-light is-center is-sm is-font-nunito" v-if="musubiiPkg.repository">
+            <p class="text is-light is-center is-sm is-font-nunito" v-if="musubiiPkg.repository">
               <i class="fab fa-github" aria-hidden="true"></i>
               <span class="text" v-if="musubiiPkg.version">v{{ musubiiPkg.version }}・</span>
               <a class="text is-link-reverse" :href="musubiiPkg.repository">
@@ -39,8 +39,8 @@
               </a>
             </p>
           </div>
-          <div class="col" v-if="data.hero.image">
-            <img class="obj is-hero-illust" :src="$withBase(data.hero.image)" alt="hero">
+          <div class="column" v-if="data.hero.image">
+            <img class="illust is-hero" :src="$withBase(data.hero.image)" alt="hero">
           </div>
         </div>
       </div>
@@ -70,14 +70,14 @@
     <section class="section is-feature" v-for="feature in data.features" :key="feature.id">
       <div class="inner-vw">
         <div class="grid is-middle is-center is-gap-3x">
-          <div class="col" v-if="feature.image">
+          <div class="column" v-if="feature.image">
             <img
               class="obj is-home-point-illust is-desktop-lg is-wide-xl"
               :src="$withBase(feature.image)"
               alt="feature"
             >
           </div>
-          <div class="col">
+          <div class="column">
             <div class="group is-home-point-textbox is-space">
               <h2 class="heading is-xl" v-if="feature.heading">
                 <span class="text">{{ feature.heading }}</span>
@@ -91,24 +91,7 @@
         </div>
       </div>
     </section>
-
-    <footer class="section is-footer">
-      <div class="inner">
-        <p class="text is-sm is-light is-center" v-if="musubiiPkg.license">
-          <span class="text">License:&nbsp;</span>
-          <span class="text">{{ musubiiPkg.license }}</span>
-          &nbsp;/&nbsp;
-          <span class="text">©&nbsp;</span>
-          <a
-            class="text is-link-reverse"
-            :href="musubiiPkg.organization.url"
-            v-if="musubiiPkg.organization.url"
-          >{{ musubiiPkg.organization.name }}</a>
-          <span class="text">&nbsp;{{ copylightYear }}</span>
-        </p>
-      </div>
-    </footer>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -138,4 +121,54 @@ export default {
 
 <style lang="scss">
 @import "@theme/styles/variables.scss";
+
+.section.is-hero {
+  padding: 1.5em 0 3em;
+  background-color: $primary;
+}
+
+.section.is-about {
+  padding: 3em 0;
+}
+
+.section.is-feature {
+  padding: 3em 0;
+  &:nth-child(odd) {
+    background-color: $grey-50;
+  }
+  &:nth-child(even) .grid {
+    flex-direction: row-reverse;
+  }
+}
+
+.text.is-hero-1 {
+  font-size: 16.75vw;
+  line-height: 1.1;
+  @include tablet() {
+    font-size: 4.375em;
+  }
+}
+
+.text.is-hero-2 {
+  font-size: 11vw;
+  line-height: 1.1;
+  @include tablet() {
+    font-size: 2.875em;
+  }
+}
+
+.button.is-plain.is-hero {
+  background-color: $light;
+  color: $primary;
+  &:hover {
+    background-color: $light-1;
+  }
+}
+
+.illust.is-hero {
+  width: 90vw;
+  @include tablet {
+    width: 23.5em;
+  }
+}
 </style>
