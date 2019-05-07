@@ -2,23 +2,25 @@
   <header class="header">
     <div class="inner">
       <div class="box is-flex is-middle is-between">
-        <router-link :to="$localePath" class="box">
-          <img
-            class="logo"
-            v-if="$site.themeConfig.logo"
-            :src="$withBase($site.themeConfig.logo)"
-            :alt="$siteTitle"
-          >
-          <span
-            ref="siteName"
-            class="site-name"
-            v-else-if="$siteTitle"
-            :class="{ 'can-hide': $site.themeConfig.logo }"
-          >{{ $siteTitle }}</span>
-        </router-link>
         <div class="box is-flex is-middle">
-          <SearchBox/>
+          <router-link :to="$localePath" class="box">
+            <img
+              class="logo"
+              v-if="$site.themeConfig.logo"
+              :src="$withBase($site.themeConfig.logo)"
+              :alt="$siteTitle"
+            >
+            <span
+              ref="siteName"
+              class="site-name"
+              v-else-if="$siteTitle"
+              :class="{ 'can-hide': $site.themeConfig.logo }"
+            >{{ $siteTitle }}</span>
+          </router-link>
           <NavLinks class="can-hide"/>
+        </div>
+        <div class="box">
+          <SearchBox/>
           <MenuButton @toggle-menu="$emit('toggle-menu')"/>
         </div>
       </div>
@@ -40,8 +42,11 @@ export default {
 @import "@theme/styles/variables.scss";
 
 .header {
-  padding: $padding-size-xl 0;
+  padding: $padding-size-md 0;
   background-color: $primary;
+  @include desktop {
+    padding: $padding-size-xl 0;
+  }
   > .inner {
     max-width: 100%;
     margin: 0 auto;
@@ -88,7 +93,12 @@ export default {
 }
 
 .logo,
+.site-name {
+  margin-right: $margin-size-md;
+}
+
+.logo,
 .logo[src$=".svg"] {
-  width: 200px;
+  max-width: 200px;
 }
 </style>

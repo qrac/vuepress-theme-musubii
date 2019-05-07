@@ -21,7 +21,7 @@ export default {
 
 .sidebar {
   width: 200px;
-  padding: $padding-size-lg $padding-size-lg $padding-size-xxl 0;
+  padding: $padding-size-xl $padding-size-lg $padding-size-xxl 0;
   @include mobile-tablet {
     display: none;
   }

@@ -189,5 +189,8 @@ function flatten(items, res) {
 
 .contents {
   padding: $padding-size-lg 0 $padding-size-xxl;
+  @include desktop {
+    padding: $padding-size-xl 0 $padding-size-xxl;
+  }
 }
 </style>

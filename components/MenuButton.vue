@@ -33,8 +33,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
   > .icon.is-bars {
     position: relative;
     flex: none;
