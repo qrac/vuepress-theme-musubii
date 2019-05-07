@@ -40,7 +40,7 @@ export default {
 @import "@theme/styles/variables.scss";
 
 .header {
-  padding: $padding-size-lg 0;
+  padding: $padding-size-xl 0;
   background-color: $primary;
   > .inner {
     max-width: 100%;
@@ -57,6 +57,32 @@ export default {
     }
     @include wide {
       width: $section-inner-width-wide;
+    }
+  }
+  .search-box {
+    @include mobile-tablet {
+      display: none;
+    }
+  }
+  .nav-links {
+    @include mobile-tablet {
+      display: none;
+    }
+    @include desktop {
+      display: flex;
+    }
+    .item {
+      padding: $padding-size-xs;
+      color: $light;
+      font-weight: 700;
+      .icon {
+        color: $light;
+      }
+    }
+  }
+  .menu-button {
+    @include desktop {
+      display: none;
     }
   }
 }

@@ -1,17 +1,68 @@
 <template>
-  <div class="menu-button" @click="$emit('toggle-menu')">
-    <svg
-      class="icon"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      role="img"
-      viewBox="0 0 448 512"
-    >
-      <path
-        fill="currentColor"
-        d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
-        class
-      ></path>
-    </svg>
-  </div>
+  <button type="button" class="menu-button" @click="$emit('toggle-menu')">
+    <span class="icon is-bars" aria-hidden="true">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </span>
+  </button>
 </template>
+
+<style lang="scss">
+@import "@theme/styles/variables.scss";
+
+.menu-open {
+  .menu-button {
+    > .icon.is-bars {
+      > .bar:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+      > .bar:nth-child(2) {
+        opacity: 0;
+      }
+      > .bar:nth-child(3) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  > .icon.is-bars {
+    position: relative;
+    flex: none;
+    width: 24px;
+    height: 20px;
+    > .bar {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $light;
+      border-radius: 1px;
+    }
+    > .bar:nth-child(1) {
+      top: 0;
+    }
+    > .bar:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    > .bar:nth-child(3) {
+      top: 100%;
+      transform: translateY(-100%);
+    }
+  }
+  > .icon.is-bars,
+  > .icon.is-bars > .bar {
+    transition: 0.12s ease-in;
+  }
+}
+</style>

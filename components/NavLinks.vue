@@ -1,10 +1,10 @@
 <template>
-  <nav class="box is-flex" v-if="userLinks.length || repoLink">
-    <div class="box" v-for="item in userLinks" :key="item.link">
+  <nav class="nav-links" v-if="userLinks.length || repoLink">
+    <div class="item" v-for="item in userLinks" :key="item.link">
       <DropdownLink v-if="item.type === 'links'" :item="item"/>
       <NavLink v-else :item="item"/>
     </div>
-    <div class="box">
+    <div class="item">
       <a
         v-if="repoLink"
         :href="repoLink"
@@ -92,3 +92,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+@import "@theme/styles/variables.scss";
+
+.nav-links {
+  font-family: nunito, $font-sans;
+}
+</style>
