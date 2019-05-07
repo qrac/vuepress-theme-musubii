@@ -175,10 +175,19 @@ function flatten(items, res) {
     width: $section-inner-width-tablet;
   }
   @include desktop {
+    display: flex;
     width: $section-inner-width-desktop;
+    > .contents {
+      flex: 1 0 0%;
+      max-width: 100%;
+    }
   }
   @include wide {
     width: $section-inner-width-wide;
   }
+}
+
+.contents {
+  padding: $padding-size-lg 0 $padding-size-xxl;
 }
 </style>
