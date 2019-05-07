@@ -20,18 +20,16 @@
 </template>
 
 <script>
-import DropdownLink from "./DropdownLink.vue";
+import DropdownLink from "@theme/components/DropdownLink.vue";
+import NavLink from "@theme/components/NavLink.vue";
 import { resolveNavLinkItem } from "../util";
-import NavLink from "./NavLink.vue";
 
 export default {
   components: { NavLink, DropdownLink },
-
   computed: {
     userNav() {
       return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || [];
     },
-
     nav() {
       const { locales } = this.$site;
       if (locales && Object.keys(locales).length > 1) {
@@ -63,7 +61,6 @@ export default {
       }
       return this.userNav;
     },
-
     userLinks() {
       return (this.nav || []).map(link => {
         return Object.assign(resolveNavLinkItem(link), {
@@ -71,20 +68,17 @@ export default {
         });
       });
     },
-
     repoLink() {
       const { repo } = this.$site.themeConfig;
       if (repo) {
         return /^https?:/.test(repo) ? repo : `https://github.com/${repo}`;
       }
     },
-
     repoLabel() {
       if (!this.repoLink) return;
       if (this.$site.themeConfig.repoLabel) {
         return this.$site.themeConfig.repoLabel;
       }
-
       const repoHost = this.repoLink.match(/^https?:\/\/[^/]+/)[0];
       const platforms = ["GitHub", "GitLab", "Bitbucket"];
       for (let i = 0; i < platforms.length; i++) {
@@ -93,7 +87,6 @@ export default {
           return platform;
         }
       }
-
       return "Source";
     }
   }

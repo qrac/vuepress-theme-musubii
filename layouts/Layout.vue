@@ -1,10 +1,10 @@
 <template>
   <div class="theme" :class="pageClasses">
-    <Header v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+    <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu"/>
+    <Menu :items="sidebarItems" @toggle-menu="toggleMenu">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
-    </Sidebar>
+    </Menu>
     <main class="main">
       <Home v-if="$page.frontmatter.home"/>
       <Page v-else :sidebar-items="sidebarItems">
@@ -23,18 +23,16 @@ import Header from "@theme/components/Header.vue";
 import Footer from "@theme/components/Footer.vue";
 import Home from "@theme/components/Home.vue";
 import Page from "@theme/components/Page.vue";
-import Sidebar from "@theme/components/Sidebar.vue";
+import Menu from "@theme/components/Menu.vue";
 import { resolveSidebarItems } from "../util";
 
 export default {
-  components: { Home, Page, Sidebar, Header, Footer },
-
+  components: { Home, Page, Menu, Header, Footer },
   data() {
     return {
-      isSidebarOpen: false
+      isMenuOpen: false
     };
   },
-
   computed: {
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
@@ -50,7 +48,6 @@ export default {
         this.$themeLocaleConfig.nav
       );
     },
-
     shouldShowSidebar() {
       const { frontmatter } = this.$page;
       return (
@@ -60,7 +57,6 @@ export default {
         this.sidebarItems.length
       );
     },
-
     sidebarItems() {
       return resolveSidebarItems(
         this.$page,
@@ -69,42 +65,35 @@ export default {
         this.$localePath
       );
     },
-
     pageClasses() {
       const userPageClass = this.$page.frontmatter.pageClass;
       return [
         {
           "no-navbar": !this.shouldShowNavbar,
-          "sidebar-open": this.isSidebarOpen,
+          "menu-open": this.isMenuOpen,
           "no-sidebar": !this.shouldShowSidebar
         },
         userPageClass
       ];
     }
   },
-
   mounted() {
     window.addEventListener("scroll", this.onScroll);
-
-    // configure progress bar
     nprogress.configure({ showSpinner: false });
-
     this.$router.beforeEach((to, from, next) => {
       if (to.path !== from.path && !Vue.component(to.name)) {
         nprogress.start();
       }
       next();
     });
-
     this.$router.afterEach(() => {
       nprogress.done();
-      this.isSidebarOpen = false;
+      this.isMenuOpen = false;
     });
   },
-
   methods: {
-    toggleSidebar(to) {
-      this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
+    toggleMenu(to) {
+      this.isMenuOpen = typeof to === "boolean" ? to : !this.isMenuOpen;
     }
   }
 };
@@ -126,20 +115,17 @@ export default {
     "main"
     "footer";
   min-height: 100vh;
-  .header {
+  > .header {
     grid-area: header;
   }
-  .aside {
+  > .aside {
     grid-area: aside;
   }
-  .main {
+  > .main {
     grid-area: main;
   }
-  .footer {
+  > .footer {
     grid-area: footer;
   }
-}
-
-.main-container {
 }
 </style>

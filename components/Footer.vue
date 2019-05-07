@@ -37,7 +37,7 @@ export default {
 @import "@theme/styles/variables.scss";
 
 .footer {
-  padding: 1.5em 0;
+  padding: $padding-size-xl $padding-size-sm;
   background-color: $blue-grey-800;
   > .inner {
     max-width: 100%;

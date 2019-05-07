@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-button" @click="$emit('toggle-sidebar')">
+  <div class="menu-button" @click="$emit('toggle-menu')">
     <svg
       class="icon"
       xmlns="http://www.w3.org/2000/svg"

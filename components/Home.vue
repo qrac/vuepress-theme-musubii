@@ -126,7 +126,7 @@ export default {
 @import "@theme/styles/variables.scss";
 
 .section.is-hero {
-  padding: 1.5em 0 3em;
+  padding: 2.5em 0 3.5em;
   background-color: $primary;
 }
 

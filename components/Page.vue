@@ -1,49 +1,49 @@
 <template>
   <div class="page">
-    <slot name="top"/>
-
-    <Content/>
-
-    <div class="page-edit">
-      <div class="edit-link" v-if="editLink">
-        <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
-        <OutboundLink/>
+    <Sidebar :items="sidebarItems">
+      <slot name="sidebar-top" slot="top"/>
+      <slot name="sidebar-bottom" slot="bottom"/>
+    </Sidebar>
+    <div class="contents">
+      <slot name="top"/>
+      <Content/>
+      <div class="page-edit">
+        <div class="edit-link" v-if="editLink">
+          <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
+          <OutboundLink/>
+        </div>
+        <div class="last-updated" v-if="lastUpdated">
+          <span class="prefix">{{ lastUpdatedText }}:</span>
+          <span class="time">{{ lastUpdated }}</span>
+        </div>
       </div>
-
-      <div class="last-updated" v-if="lastUpdated">
-        <span class="prefix">{{ lastUpdatedText }}:</span>
-        <span class="time">{{ lastUpdated }}</span>
+      <div class="page-nav" v-if="prev || next">
+        <p class="inner">
+          <span v-if="prev" class="prev">
+            ←
+            <router-link v-if="prev" class="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
+          </span>
+          <span v-if="next" class="next">
+            <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>→
+          </span>
+        </p>
       </div>
+      <slot name="bottom"/>
     </div>
-
-    <div class="page-nav" v-if="prev || next">
-      <p class="inner">
-        <span v-if="prev" class="prev">
-          ←
-          <router-link v-if="prev" class="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
-        </span>
-
-        <span v-if="next" class="next">
-          <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>→
-        </span>
-      </p>
-    </div>
-
-    <slot name="bottom"/>
   </div>
 </template>
 
 <script>
+import Sidebar from "@theme/components/Sidebar.vue";
 import { resolvePage, outboundRE, endingSlashRE } from "../util";
 
 export default {
+  components: { Sidebar },
   props: ["sidebarItems"],
-
   computed: {
     lastUpdated() {
       return this.$page.lastUpdated;
     },
-
     lastUpdatedText() {
       if (typeof this.$themeLocaleConfig.lastUpdated === "string") {
         return this.$themeLocaleConfig.lastUpdated;
@@ -53,7 +53,6 @@ export default {
       }
       return "Last Updated";
     },
-
     prev() {
       const prev = this.$page.frontmatter.prev;
       if (prev === false) {
@@ -64,7 +63,6 @@ export default {
         return resolvePrev(this.$page, this.sidebarItems);
       }
     },
-
     next() {
       const next = this.$page.frontmatter.next;
       if (next === false) {
@@ -75,7 +73,6 @@ export default {
         return resolveNext(this.$page, this.sidebarItems);
       }
     },
-
     editLink() {
       if (this.$page.frontmatter.editLink === false) {
         return;
@@ -98,7 +95,6 @@ export default {
         );
       }
     },
-
     editLinkText() {
       return (
         this.$themeLocaleConfig.editLinkText ||
@@ -107,7 +103,6 @@ export default {
       );
     }
   },
-
   methods: {
     createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/;
@@ -122,7 +117,6 @@ export default {
           `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
         );
       }
-
       const base = outboundRE.test(docsRepo)
         ? docsRepo
         : `https://github.com/${docsRepo}`;
@@ -166,3 +160,25 @@ function flatten(items, res) {
   }
 }
 </script>
+
+<style lang="scss">
+@import "@theme/styles/variables.scss";
+
+.page {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 $padding-size-sm;
+  @include fablet {
+    width: $section-inner-width-fablet;
+  }
+  @include tablet {
+    width: $section-inner-width-tablet;
+  }
+  @include desktop {
+    width: $section-inner-width-desktop;
+  }
+  @include wide {
+    width: $section-inner-width-wide;
+  }
+}
+</style>
