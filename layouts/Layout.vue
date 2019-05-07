@@ -1,19 +1,17 @@
 <template>
-  <div class="theme-container" :class="pageClasses">
+  <div class="theme" :class="pageClasses">
     <Header v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
-
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
-
-    <Home v-if="$page.frontmatter.home"/>
-
-    <Page v-else :sidebar-items="sidebarItems">
-      <slot name="page-top" slot="top"/>
-      <slot name="page-bottom" slot="bottom"/>
-    </Page>
-
+    <main class="main">
+      <Home v-if="$page.frontmatter.home"/>
+      <Page v-else :sidebar-items="sidebarItems">
+        <slot name="page-top" slot="top"/>
+        <slot name="page-bottom" slot="bottom"/>
+      </Page>
+    </main>
     <Footer/>
   </div>
 </template>
@@ -114,3 +112,34 @@ export default {
 
 <style src="@theme/styles/index.scss" lang="scss"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
+
+<style lang="scss">
+@import "@theme/styles/variables.scss";
+
+.theme {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "aside"
+    "main"
+    "footer";
+  min-height: 100vh;
+  .header {
+    grid-area: header;
+  }
+  .aside {
+    grid-area: aside;
+  }
+  .main {
+    grid-area: main;
+  }
+  .footer {
+    grid-area: footer;
+  }
+}
+
+.main-container {
+}
+</style>

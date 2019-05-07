@@ -1,5 +1,5 @@
 <template>
-  <main class="home is-wide-lg">
+  <div class="home is-wide-lg">
     <section class="section is-hero">
       <div class="inner is-padding-right-md is-padding-left-md">
         <div class="grid is-middle is-center is-gap-xxl">
@@ -94,7 +94,7 @@
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </template>
 
 <script>

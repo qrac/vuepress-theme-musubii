@@ -3,7 +3,6 @@ const path = require("path")
 module.exports = {
   name: "vuepress-theme-musubii",
   plugins: [
-    "@vuepress/pagination",
     [
       "@vuepress/search",
       {

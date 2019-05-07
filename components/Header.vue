@@ -1,8 +1,6 @@
 <template>
-  <header class="section is-header">
-    <div
-      class="inner is-padding-top-lg is-padding-right-sm is-padding-bottom-lg is-padding-left-sm"
-    >
+  <header class="header">
+    <div class="inner is-padding-right-sm is-padding-left-sm">
       <div class="box is-flex is-middle is-between">
         <router-link :to="$localePath" class="box">
           <img
@@ -73,8 +71,25 @@ function css(el, property) {
 <style lang="scss">
 @import "@theme/styles/variables.scss";
 
-.section.is-header {
+.header {
+  padding: 2em 0;
   background-color: $primary;
+  > .inner {
+    max-width: 100%;
+    margin: 0 auto;
+    @include fablet {
+      width: $section-inner-width-fablet;
+    }
+    @include tablet {
+      width: $section-inner-width-tablet;
+    }
+    @include desktop {
+      width: $section-inner-width-desktop;
+    }
+    @include wide {
+      width: $section-inner-width-wide;
+    }
+  }
 }
 
 .logo,

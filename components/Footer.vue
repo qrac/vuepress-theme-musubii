@@ -1,5 +1,5 @@
 <template>
-  <footer class="section is-footer">
+  <footer class="footer">
     <div class="inner">
       <p class="text is-light is-strong is-center is-font-nunito" v-if="musubiiPkg.license">
         <span class="text">License:&nbsp;</span>
@@ -36,8 +36,24 @@ export default {
 <style lang="scss">
 @import "@theme/styles/variables.scss";
 
-.section.is-footer {
-  padding: 2.5em 0;
-  background-color: $primary;
+.footer {
+  padding: 1.5em 0;
+  background-color: $blue-grey-800;
+  > .inner {
+    max-width: 100%;
+    margin: 0 auto;
+    @include fablet {
+      width: $section-inner-width-fablet;
+    }
+    @include tablet {
+      width: $section-inner-width-tablet;
+    }
+    @include desktop {
+      width: $section-inner-width-desktop;
+    }
+    @include wide {
+      width: $section-inner-width-wide;
+    }
+  }
 }
 </style>
