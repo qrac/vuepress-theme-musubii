@@ -147,16 +147,18 @@ export default {
 .text.is-hero-1 {
   font-size: 16.75vw;
   line-height: 1.1;
+  white-space: nowrap;
   @include tablet() {
-    font-size: 4.375em;
+    font-size: 4.475em;
   }
 }
 
 .text.is-hero-2 {
   font-size: 11vw;
   line-height: 1.1;
+  white-space: nowrap;
   @include tablet() {
-    font-size: 2.875em;
+    font-size: 2.965em;
   }
 }
 
@@ -172,6 +174,9 @@ export default {
   width: 90vw;
   @include tablet {
     width: 23.5em;
+  }
+  @include desktop {
+    margin-left: 28px;
   }
 }
 
