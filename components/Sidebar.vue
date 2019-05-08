@@ -23,7 +23,7 @@ export default {
 
 .sidebar {
   flex: none;
-  width: 200px;
+  width: 214px;
 }
 
 .sidebar-contents {
