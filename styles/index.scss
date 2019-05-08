@@ -14,6 +14,15 @@ $pattern-display-mediaquery: mobile, fablet, tablet, desktop, wide,
 @import "~musubii/src/scss/_components.scss";
 
 //----------------------------------------------------
+// / Prism.js
+//----------------------------------------------------
+
+pre[class*="language-"] {
+  border-radius: $radius-sm;
+  -webkit-overflow-scrolling: touch;
+}
+
+//----------------------------------------------------
 // / Modifier
 //----------------------------------------------------
 

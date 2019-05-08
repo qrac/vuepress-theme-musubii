@@ -24,8 +24,15 @@
         <div class="column is-mobile-0 is-mobile-tablet-none">
           <SearchBox class="is-ghost"/>
         </div>
-        <div class="column is-desktop-none">
-          <MenuButton @toggle-menu="$emit('toggle-menu')"/>
+        <div class="column">
+          <div class="grid is-middle is-gap-column-xs">
+            <div class="column">
+              <DarkThemeButton/>
+            </div>
+            <div class="column is-desktop-none">
+              <MenuButton @toggle-menu="$emit('toggle-menu')"/>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -35,10 +42,11 @@
 <script>
 import NavLinks from "@theme/components/NavLinks.vue";
 import SearchBox from "@theme/components/SearchBox";
+import DarkThemeButton from "@theme/components/DarkThemeButton";
 import MenuButton from "@theme/components/MenuButton.vue";
 
 export default {
-  components: { NavLinks, MenuButton, SearchBox }
+  components: { NavLinks, SearchBox, DarkThemeButton, MenuButton }
 };
 </script>
 
@@ -83,6 +91,6 @@ export default {
 
 .logo,
 .logo[src$=".svg"] {
-  max-width: 200px;
+  max-width: 188px;
 }
 </style>

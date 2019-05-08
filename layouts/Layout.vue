@@ -107,7 +107,7 @@ export default {
 
 .theme {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100%;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas:
     "header"

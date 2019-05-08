@@ -1,8 +1,10 @@
 <template>
   <aside class="sidebar is-mobile-tablet-none">
-    <slot name="top"/>
-    <SidebarLinks :depth="0" :items="items"/>
-    <slot name="bottom"/>
+    <div class="sidebar-contents">
+      <slot name="top"/>
+      <SidebarLinks :depth="0" :items="items"/>
+      <slot name="bottom"/>
+    </div>
   </aside>
 </template>
 
@@ -20,7 +22,13 @@ export default {
 @import "@theme/styles/variables.scss";
 
 .sidebar {
+  flex: none;
   width: 200px;
+}
+
+.sidebar-contents {
+  position: sticky;
+  top: 0;
   padding: $padding-size-xl $padding-size-lg $padding-size-xxl 0;
 }
 </style>
