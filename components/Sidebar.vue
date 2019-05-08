@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar is-mobile-tablet-none">
     <slot name="top"/>
     <SidebarLinks :depth="0" :items="items"/>
     <slot name="bottom"/>
@@ -22,8 +22,5 @@ export default {
 .sidebar {
   width: 200px;
   padding: $padding-size-xl $padding-size-lg $padding-size-xxl 0;
-  @include mobile-tablet {
-    display: none;
-  }
 }
 </style>

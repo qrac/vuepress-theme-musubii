@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div class="inner">
-      <div class="box is-flex is-middle is-between">
-        <div class="box is-flex is-middle">
+      <div class="grid is-middle is-between is-gap-column-md">
+        <div class="column">
           <router-link :to="$localePath" class="box">
             <img
               class="logo"
@@ -17,10 +17,14 @@
               :class="{ 'can-hide': $site.themeConfig.logo }"
             >{{ $siteTitle }}</span>
           </router-link>
+        </div>
+        <div class="column is-mobile-tablet-none">
           <NavLinks class="can-hide"/>
         </div>
-        <div class="box">
-          <SearchBox/>
+        <div class="column is-mobile-0 is-mobile-tablet-none">
+          <SearchBox class="is-ghost"/>
+        </div>
+        <div class="column is-desktop-none">
           <MenuButton @toggle-menu="$emit('toggle-menu')"/>
         </div>
       </div>
@@ -29,12 +33,12 @@
 </template>
 
 <script>
-import SearchBox from "@SearchBox";
-import MenuButton from "@theme/components/MenuButton.vue";
 import NavLinks from "@theme/components/NavLinks.vue";
+import SearchBox from "@theme/components/SearchBox";
+import MenuButton from "@theme/components/MenuButton.vue";
 
 export default {
-  components: { MenuButton, NavLinks, SearchBox }
+  components: { NavLinks, MenuButton, SearchBox }
 };
 </script>
 
@@ -64,18 +68,8 @@ export default {
       width: $section-inner-width-wide;
     }
   }
-  .search-box {
-    @include mobile-tablet {
-      display: none;
-    }
-  }
   .nav-links {
-    @include mobile-tablet {
-      display: none;
-    }
-    @include desktop {
-      display: flex;
-    }
+    display: flex;
     .item {
       padding: $padding-size-xs;
       color: $light;
@@ -85,16 +79,6 @@ export default {
       }
     }
   }
-  .menu-button {
-    @include desktop {
-      display: none;
-    }
-  }
-}
-
-.logo,
-.site-name {
-  margin-right: $margin-size-md;
 }
 
 .logo,

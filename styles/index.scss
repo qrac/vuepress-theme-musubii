@@ -6,6 +6,9 @@
 // / Import
 //----------------------------------------------------
 
+$pattern-display-mediaquery: mobile, fablet, tablet, desktop, wide,
+  mobile-tablet !default;
+
 @import "./variables.scss";
 @import "~shitajicss/src/scss/_shitaji.scss";
 @import "~musubii/src/scss/_components.scss";
