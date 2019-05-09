@@ -19,6 +19,7 @@
       @keyup.enter="go(focusIndex)"
       @keyup.up="onUp"
       @keyup.down="onDown"
+      @keypress="checkGo"
     >
     <ul
       class="suggestions"
@@ -49,6 +50,7 @@ export default {
   data() {
     return {
       query: "",
+      canGo: false,
       focused: false,
       focusIndex: 0
     };
@@ -147,13 +149,17 @@ export default {
         }
       }
     },
+    checkGo() {
+      this.canGo = true;
+    },
     go(i) {
-      if (!this.showSuggestions) {
+      if (!this.showSuggestions || !this.canGo) {
         return;
       }
       this.$router.push(this.suggestions[i].path);
       this.query = "";
       this.focusIndex = 0;
+      this.canGo = false;
     },
     focus(i) {
       this.focusIndex = i;
