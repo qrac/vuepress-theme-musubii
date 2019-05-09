@@ -1,7 +1,7 @@
 <template>
   <div class="toggle-theme-button">
     <input type="checkbox" class="input is-hidden" id="theme-toggle" v-model="darkTheme">
-    <label class="button is-outline is-circle is-sm" for="theme-toggle">
+    <label class="button is-outline is-circle" for="theme-toggle">
       <svg class="icon is-sun" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
         <path
           d="m434 265a14.13 14.13 0 0 1 0-18l51.9-59.23c4.35-5 2.64-10.22-3.79-11.67l-76.84-17.38a14.09 14.09 0 0 1 -10.6-14.6l7.24-78.45c.61-6.57-3.86-9.81-9.92-7.2l-72.43 31.11a14.08 14.08 0 0 1 -17.16-5.58l-40.26-67.74c-3.37-5.67-8.89-5.67-12.26 0l-40.25 67.74a14.11 14.11 0 0 1 -17.16 5.58l-72.38-31.13c-6.06-2.6-10.53.64-9.93 7.22l7.17 78.42a14.11 14.11 0 0 1 -10.61 14.6l-76.78 17.4c-6.44 1.46-8.15 6.72-3.8 11.68l51.86 59.23a14.13 14.13 0 0 1 0 18l-51.9 59.23c-4.35 5-2.64 10.22 3.79 11.67l76.84 17.38a14.09 14.09 0 0 1 10.6 14.6l-7.24 78.45c-.61 6.57 3.86 9.81 9.92 7.2l72.39-31.14a14.08 14.08 0 0 1 17.2 5.61l40.26 67.74c3.37 5.67 8.89 5.67 12.26 0l40.25-67.74a14.11 14.11 0 0 1 17.16-5.58l72.38 31.11c6.06 2.6 10.53-.64 9.93-7.22l-7.17-78.42a14.11 14.11 0 0 1 10.61-14.6l76.78-17.4c6.44-1.46 8.15-6.72 3.8-11.68zm-178 121a130 130 0 1 1 130-130 130 130 0 0 1 -130 130z"
@@ -68,11 +68,15 @@ export default {
       box-shadow: $button-focus-shadow;
     }
   }
+  .button.is-circle {
+    width: calc(2em + (1px * 2));
+    height: calc(2em + (1px * 2));
+  }
   .button {
     .icon {
       flex: none;
-      width: 1.5em;
-      height: 1.5em;
+      width: 1.25em;
+      height: 1.25em;
     }
   }
 }

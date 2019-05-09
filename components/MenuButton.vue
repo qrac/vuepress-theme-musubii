@@ -33,20 +33,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: calc(2em + (1px * 2));
+  height: calc(2em + (1px * 2));
   background: none;
   border: none;
+  outline: none;
   > .icon.is-bars {
     position: relative;
     flex: none;
-    width: 24px;
-    height: 20px;
+    width: 1.5em;
+    height: 1.25em;
     > .bar {
       position: absolute;
       left: 0;
       width: 100%;
-      height: 3px;
+      height: 0.1875em;
       background-color: $light;
       border-radius: 1px;
     }

@@ -5,7 +5,7 @@
         <div class="column">
           <router-link :to="$localePath" class="box">
             <img
-              class="logo"
+              class="site-logo"
               v-if="$site.themeConfig.logo"
               :src="$withBase($site.themeConfig.logo)"
               :alt="$siteTitle"
@@ -79,8 +79,8 @@ export default {
       width: $section-inner-width-wide;
     }
   }
-  .logo,
-  .logo[src$=".svg"] {
+  .site-logo,
+  .site-logo[src$=".svg"] {
     max-width: 188px;
   }
   .nav-links {

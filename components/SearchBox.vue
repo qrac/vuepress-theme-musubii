@@ -180,7 +180,7 @@ export default {
   .icon.is-search {
     position: absolute;
     top: calc(1em + (1px * 1));
-    left: 0.5375em;
+    left: 0.5625em;
     color: $grey-500;
     transform: translateY(-50%);
     z-index: 2;
@@ -195,11 +195,29 @@ export default {
   }
   .suggestions {
     position: absolute;
-    top: calc(2em + (1px * 2));
+    top: calc(2em + (1px * 1));
     left: 0;
     width: 100%;
-    background-color: $light;
+    padding: 0.5em;
+    background-color: $convert-background-1;
+    border: 1px solid $convert-border;
+    border-radius: $radius-md;
     z-index: 3;
+  }
+  .suggestion {
+    a {
+      display: block;
+      padding: 0.25em 0.5em;
+      border-radius: $radius-sm;
+      color: $convert-text-dark-3;
+      .page-title {
+        font-weight: 700;
+      }
+    }
+    &.focused a {
+      background-color: $convert-background-3;
+      color: $convert-primary-strong;
+    }
   }
 }
 </style>
