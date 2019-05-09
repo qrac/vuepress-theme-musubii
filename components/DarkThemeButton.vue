@@ -63,6 +63,11 @@ export default {
 @import "@theme/styles/palette.scss";
 
 .toggle-theme-button {
+  .input[type="checkbox"] {
+    &:focus + .button {
+      box-shadow: $button-focus-shadow;
+    }
+  }
   .button {
     .icon {
       flex: none;
