@@ -11,7 +11,7 @@
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
-      :class="{ 'focused': focused }"
+      :class="{ 'is-focused': focused }"
       autocomplete="off"
       spellcheck="false"
       @focus="focused = true"
@@ -19,18 +19,13 @@
       @keyup.enter="go(focusIndex)"
       @keyup.up="onUp"
       @keyup.down="onDown"
-      @keypress="checkGo"
+      @keypress="waitGo"
     >
-    <ul
-      class="suggestions"
-      v-if="showSuggestions"
-      :class="{ 'align-right': alignRight }"
-      @mouseleave="unfocus"
-    >
+    <ul class="suggestions" v-if="showSuggestions" @mouseleave="unfocus">
       <li
         class="suggestion"
         v-for="(s, i) in suggestions"
-        :class="{ focused: i === focusIndex }"
+        :class="{ 'is-focused': i === focusIndex }"
         @mousedown="go(i)"
         @mouseenter="focus(i)"
         :key="(i)"
@@ -50,7 +45,7 @@ export default {
   data() {
     return {
       query: "",
-      canGo: false,
+      canGo: true,
       focused: false,
       focusIndex: 0
     };
@@ -149,11 +144,11 @@ export default {
         }
       }
     },
-    checkGo() {
-      this.canGo = true;
+    waitGo() {
+      this.canGo = false;
     },
     go(i) {
-      if (!this.showSuggestions || !this.canGo) {
+      if (!this.showSuggestions || this.canGo) {
         return;
       }
       this.$router.push(this.suggestions[i].path);
@@ -195,7 +190,7 @@ export default {
   }
   .suggestions {
     position: absolute;
-    top: calc(2em + (1px * 1));
+    top: calc(2em + (1px * 2) + 0.25em);
     left: 0;
     width: 100%;
     padding: 0.5em;
@@ -203,6 +198,25 @@ export default {
     border: 1px solid $convert-border;
     border-radius: $radius-md;
     z-index: 3;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 10%;
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 0.5em solid transparent;
+      border-right: 0.5em solid transparent;
+    }
+    &:before {
+      top: -0.5em;
+      border-bottom: 0.5em solid $convert-border;
+    }
+    &:after {
+      top: calc(-0.5em + 1px);
+      border-bottom: 0.5em solid $convert-background-1;
+    }
   }
   .suggestion {
     a {
@@ -214,7 +228,7 @@ export default {
         font-weight: 700;
       }
     }
-    &.focused a {
+    &.is-focused a {
       background-color: $convert-background-3;
       color: $convert-primary-strong;
     }
