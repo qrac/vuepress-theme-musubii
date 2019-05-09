@@ -3,6 +3,7 @@ const path = require("path")
 module.exports = {
   name: "vuepress-theme-musubii",
   plugins: [
+    "@vuepress/active-header-links",
     [
       "@vuepress/search",
       {

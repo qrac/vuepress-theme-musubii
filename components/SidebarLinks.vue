@@ -77,3 +77,11 @@ function resolveOpenGroupIndex(route, items) {
   return -1;
 }
 </script>
+
+<style lang="scss">
+@import "@theme/styles/palette.scss";
+
+.sidebar-links {
+  font-family: nunito, $font-sans;
+}
+</style>

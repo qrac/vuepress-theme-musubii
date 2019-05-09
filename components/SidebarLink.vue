@@ -66,7 +66,7 @@ function renderLink(h, to, text, active) {
         exactActiveClass: ""
       },
       class: {
-        active,
+        "is-active": active,
         "sidebar-link": true
       }
     },
@@ -89,3 +89,20 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
   );
 }
 </script>
+
+<style lang="scss">
+@import "@theme/styles/palette.scss";
+
+.sidebar-sub-headers {
+  padding-left: $padding-size-md;
+}
+
+.sidebar-link {
+  display: block;
+  padding-left: $padding-size-md;
+  margin-bottom: $margin-size-xs;
+  &.is-active {
+    color: $convert-primary-strong;
+  }
+}
+</style>

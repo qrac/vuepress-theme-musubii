@@ -128,7 +128,6 @@ export default {
 .section.is-hero {
   padding: 2.5em 0 3.5em;
   background-color: $convert-hero-background-color;
-  transition: $transition-change-theme;
 }
 
 .section.is-about {
@@ -137,7 +136,6 @@ export default {
 
 .section.is-feature {
   padding: 3em 0;
-  transition: $transition-change-theme;
   &:nth-child(odd) {
     background-color: $convert-background-2;
   }

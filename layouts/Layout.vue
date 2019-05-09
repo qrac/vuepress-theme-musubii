@@ -141,4 +141,13 @@ pre[class*="language-"] {
 .is-font-nunito {
   font-family: Nunito, $font-sans;
 }
+
+body,
+.header,
+.section.is-hero,
+.button.is-plain.is-hero,
+.menu,
+.footer {
+  transition: $transition-change-theme;
+}
 </style>

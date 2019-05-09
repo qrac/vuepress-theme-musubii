@@ -51,3 +51,17 @@ export default {
   methods: { isActive }
 };
 </script>
+
+<style lang="scss">
+@import "@theme/styles/palette.scss";
+
+.sidebar-heading {
+  margin-bottom: $margin-size-xs;
+  font-size: 115%;
+  font-weight: 700;
+}
+
+.sidebar-group-items {
+  margin-bottom: $margin-size-sm;
+}
+</style>

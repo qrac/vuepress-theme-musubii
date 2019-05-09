@@ -17,7 +17,7 @@ $pattern-display-mediaquery: mobile, fablet, tablet, desktop, wide,
 // / Project
 //----------------------------------------------------
 
-$transition-change-theme: background-color 0.875s ease-in, color 0.875s ease-in !default;
+$transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !default;
 
 $theme-light-header-background-color: $cyan-500 !default;
 $theme-light-header-border-color: transparent !default;

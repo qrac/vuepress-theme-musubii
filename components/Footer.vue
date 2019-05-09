@@ -39,7 +39,6 @@ export default {
 .footer {
   padding: $padding-size-xl $padding-size-sm;
   background-color: $blue-grey-800;
-  transition: $transition-change-theme;
   > .inner {
     max-width: 100%;
     margin: 0 auto;

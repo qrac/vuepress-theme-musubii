@@ -58,7 +58,6 @@ export default {
   padding: $padding-size-md 0;
   background-color: $convert-header-background-color;
   box-shadow: 0 1px 0 $convert-header-border-color;
-  transition: $transition-change-theme;
   @include desktop {
     padding: $padding-size-xl 0;
   }
