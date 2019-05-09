@@ -24,8 +24,8 @@
     "url": "https://qranoko.jp"
   },
   "scripts": {
-    "dev": "vuepress dev example",
-    "build": "vuepress build example",
+    "dev": "vuepress dev example --temp example/.temp",
+    "build": "vuepress build example --temp example/.temp",
     "clean": "rmtrash ./example/.temp ./example/.vuepress/dist"
   },
   "browserslist": [

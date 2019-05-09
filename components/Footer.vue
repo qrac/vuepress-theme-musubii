@@ -34,11 +34,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 .footer {
   padding: $padding-size-xl $padding-size-sm;
   background-color: $blue-grey-800;
+  transition: $transition-change-theme;
   > .inner {
     max-width: 100%;
     margin: 0 auto;

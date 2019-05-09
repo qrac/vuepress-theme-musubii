@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 .nav-links {
   font-family: nunito, $font-sans;

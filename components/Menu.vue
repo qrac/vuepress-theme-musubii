@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 :not(.menu-open) {
   > .menu {

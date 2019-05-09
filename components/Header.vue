@@ -22,7 +22,7 @@
           <NavLinks class="can-hide"/>
         </div>
         <div class="column is-mobile-0 is-mobile-tablet-none">
-          <SearchBox class="is-ghost"/>
+          <SearchBox/>
         </div>
         <div class="column">
           <div class="grid is-middle is-gap-column-xs">
@@ -51,11 +51,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 .header {
+  position: relative;
   padding: $padding-size-md 0;
-  background-color: $primary;
+  background-color: $convert-header-background-color;
+  box-shadow: 0 1px 0 $convert-header-border-color;
+  transition: $transition-change-theme;
   @include desktop {
     padding: $padding-size-xl 0;
   }
@@ -76,6 +79,10 @@ export default {
       width: $section-inner-width-wide;
     }
   }
+  .logo,
+  .logo[src$=".svg"] {
+    max-width: 188px;
+  }
   .nav-links {
     display: flex;
     .item {
@@ -87,10 +94,27 @@ export default {
       }
     }
   }
-}
-
-.logo,
-.logo[src$=".svg"] {
-  max-width: 188px;
+  .search-box {
+    .icon.is-search {
+      color: $light;
+    }
+    .input[type="search"] {
+      background-color: transparent;
+      border-color: $light;
+      color: $light;
+    }
+  }
+  .toggle-theme-button {
+    .button.is-outline {
+      background-color: transparent;
+      border-color: $light;
+      &:hover {
+        background-color: transparent;
+      }
+      .icon {
+        color: $light;
+      }
+    }
+  }
 }
 </style>

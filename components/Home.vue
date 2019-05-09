@@ -123,11 +123,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 .section.is-hero {
   padding: 2.5em 0 3.5em;
-  background-color: $primary;
+  background-color: $convert-hero-background-color;
+  transition: $transition-change-theme;
 }
 
 .section.is-about {
@@ -136,8 +137,9 @@ export default {
 
 .section.is-feature {
   padding: 3em 0;
+  transition: $transition-change-theme;
   &:nth-child(odd) {
-    background-color: $grey-50;
+    background-color: $convert-background-2;
   }
   &:nth-child(even) .grid {
     flex-direction: row-reverse;
@@ -164,7 +166,7 @@ export default {
 
 .button.is-plain.is-hero {
   background-color: $light;
-  color: $primary;
+  color: $convert-hero-background-color;
   &:hover {
     background-color: $light-1;
   }

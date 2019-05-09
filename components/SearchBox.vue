@@ -166,7 +166,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 .search-box {
   position: relative;
@@ -176,7 +176,6 @@ export default {
     top: calc(1em + (1px * 1));
     left: 0.5375em;
     color: $grey-500;
-    fill: $grey-500;
     transform: translateY(-50%);
     z-index: 2;
   }
@@ -195,18 +194,6 @@ export default {
     width: 100%;
     background-color: $light;
     z-index: 3;
-  }
-}
-
-.search-box.is-ghost {
-  .icon.is-search {
-    color: $light;
-    fill: $light;
-  }
-  .input[type="search"] {
-    background-color: transparent;
-    border-color: $light;
-    color: $light;
   }
 }
 </style>

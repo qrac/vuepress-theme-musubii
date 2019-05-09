@@ -162,7 +162,7 @@ function flatten(items, res) {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 .page {
   max-width: 100%;

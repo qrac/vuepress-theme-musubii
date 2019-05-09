@@ -99,11 +99,15 @@ export default {
 };
 </script>
 
-<style src="@theme/styles/index.scss" lang="scss"></style>
+<style src="@theme/styles/style.scss" lang="scss"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
+
+body {
+  transition: $transition-change-theme;
+}
 
 .theme {
   display: grid;
@@ -127,5 +131,14 @@ export default {
   > .footer {
     grid-area: footer;
   }
+}
+
+pre[class*="language-"] {
+  border-radius: $radius-sm;
+  -webkit-overflow-scrolling: touch;
+}
+
+.is-font-nunito {
+  font-family: Nunito, $font-sans;
 }
 </style>

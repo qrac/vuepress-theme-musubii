@@ -9,7 +9,7 @@
 </template>
 
 <style lang="scss">
-@import "@theme/styles/variables.scss";
+@import "@theme/styles/palette.scss";
 
 .menu-open {
   .menu-button {

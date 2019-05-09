@@ -1,0 +1,32 @@
+//----------------------------------------------------
+// Palette
+//----------------------------------------------------
+
+//----------------------------------------------------
+// / Import
+//----------------------------------------------------
+
+$pattern-display-mediaquery: mobile, fablet, tablet, desktop, wide,
+  mobile-tablet !default;
+
+@import "~moftone/src/scss/tone/_moftone.scss";
+@import "~sass-dashi/src/scss/_dashi.scss";
+@import "~musubii/src/scss/_configs.scss";
+
+//----------------------------------------------------
+// / Project
+//----------------------------------------------------
+
+$transition-change-theme: background-color 0.875s ease-in, color 0.875s ease-in !default;
+
+$theme-light-header-background-color: $cyan-500 !default;
+$theme-light-header-border-color: transparent !default;
+$theme-light-hero-background-color: $cyan-500 !default;
+
+$theme-dark-header-background-color: darken($cyan-900, 10%) !default;
+$theme-dark-header-border-color: transparent !default;
+$theme-dark-hero-background-color: darken($cyan-900, 10%) !default;
+
+$convert-header-background-color: if($use-css-variables == true, var(--header-background-color), $theme-light-header-background-color) !default;
+$convert-header-border-color: if($use-css-variables == true, var(--header-border-color), $theme-light-header-border-color) !default;
+$convert-hero-background-color: if($use-css-variables == true, var(--hero-background-color), $theme-light-hero-background-color) !default;

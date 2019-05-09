@@ -1,0 +1,31 @@
+//----------------------------------------------------
+// Style
+//----------------------------------------------------
+
+//----------------------------------------------------
+// / Import
+//----------------------------------------------------
+
+@import "./palette.scss";
+@import "~shitajicss/src/scss/_shitaji.scss";
+@import "~musubii/src/scss/_components.scss";
+
+//----------------------------------------------------
+// / Project
+//----------------------------------------------------
+
+:root {
+  @include export-theme-light {
+    --header-background-color: #{$theme-light-header-background-color};
+    --header-border-color: #{$theme-light-header-border-color};
+    --hero-background-color: #{$theme-light-hero-background-color};
+  }
+}
+
+:root {
+  @include export-theme-dark {
+    --header-background-color: #{$theme-dark-header-background-color};
+    --header-border-color: #{$theme-dark-header-border-color};
+    --hero-background-color: #{$theme-dark-hero-background-color};
+  }
+}
