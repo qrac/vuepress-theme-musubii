@@ -38,7 +38,7 @@ export default {
 
 .footer {
   padding: $padding-size-xl $padding-size-sm;
-  background-color: $blue-grey-800;
+  background-color: $convert-footer-background-color;
   > .inner {
     max-width: 100%;
     margin: 0 auto;

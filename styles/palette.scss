@@ -22,11 +22,14 @@ $transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !d
 $theme-light-header-background-color: $cyan-500 !default;
 $theme-light-header-border-color: transparent !default;
 $theme-light-hero-background-color: $cyan-500 !default;
+$theme-light-footer-background-color: $blue-grey-800 !default;
 
-$theme-dark-header-background-color: darken($cyan-900, 10%) !default;
+$theme-dark-header-background-color: $convert-background-2 !default;
 $theme-dark-header-border-color: transparent !default;
-$theme-dark-hero-background-color: darken($cyan-900, 10%) !default;
+$theme-dark-hero-background-color: $convert-background-2 !default;
+$theme-dark-footer-background-color: $convert-background-2 !default;
 
 $convert-header-background-color: if($use-css-variables == true, var(--header-background-color), $theme-light-header-background-color) !default;
 $convert-header-border-color: if($use-css-variables == true, var(--header-border-color), $theme-light-header-border-color) !default;
 $convert-hero-background-color: if($use-css-variables == true, var(--hero-background-color), $theme-light-hero-background-color) !default;
+$convert-footer-background-color: if($use-css-variables == true, var(--footer-background-color), $theme-light-footer-background-color) !default;

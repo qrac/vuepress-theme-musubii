@@ -19,6 +19,7 @@
     --header-background-color: #{$theme-light-header-background-color};
     --header-border-color: #{$theme-light-header-border-color};
     --hero-background-color: #{$theme-light-hero-background-color};
+    --footer-background-color: #{$theme-light-footer-background-color};
   }
 }
 
@@ -27,5 +28,6 @@
     --header-background-color: #{$theme-dark-header-background-color};
     --header-border-color: #{$theme-dark-header-border-color};
     --hero-background-color: #{$theme-dark-hero-background-color};
+    --footer-background-color: #{$theme-dark-footer-background-color};
   }
 }
