@@ -8,6 +8,7 @@
     <input
       class="input is-round is-mobile-full"
       type="search"
+      placeholder="Search"
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
@@ -171,7 +172,7 @@ export default {
 
 .search-box {
   position: relative;
-  font-family: nunito, $font-sans;
+  font-family: Nunito, $font-sans;
   .icon.is-search {
     position: absolute;
     top: calc(1em + (1px * 1));
@@ -191,7 +192,7 @@ export default {
   .suggestions {
     position: absolute;
     top: calc(2em + (1px * 2) + 0.25em);
-    left: 0;
+    right: 0;
     width: 100%;
     padding: 0.5em;
     background-color: $convert-background-1;

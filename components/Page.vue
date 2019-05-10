@@ -5,30 +5,32 @@
       <slot name="sidebar-bottom" slot="bottom"/>
     </Sidebar>
     <div class="contents">
-      <slot name="top"/>
-      <Content/>
-      <div class="page-edit">
-        <div class="edit-link" v-if="editLink">
-          <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
-          <OutboundLink/>
+      <div class="inner">
+        <slot name="top"/>
+        <Content/>
+        <div class="page-edit">
+          <div class="edit-link" v-if="editLink">
+            <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
+            <OutboundLink/>
+          </div>
+          <div class="last-updated" v-if="lastUpdated">
+            <span class="prefix">{{ lastUpdatedText }}:</span>
+            <span class="time">{{ lastUpdated }}</span>
+          </div>
         </div>
-        <div class="last-updated" v-if="lastUpdated">
-          <span class="prefix">{{ lastUpdatedText }}:</span>
-          <span class="time">{{ lastUpdated }}</span>
+        <div class="page-nav" v-if="prev || next">
+          <p class="inner">
+            <span v-if="prev" class="prev">
+              ←
+              <router-link v-if="prev" class="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
+            </span>
+            <span v-if="next" class="next">
+              <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>→
+            </span>
+          </p>
         </div>
+        <slot name="bottom"/>
       </div>
-      <div class="page-nav" v-if="prev || next">
-        <p class="inner">
-          <span v-if="prev" class="prev">
-            ←
-            <router-link v-if="prev" class="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
-          </span>
-          <span v-if="next" class="next">
-            <router-link v-if="next" :to="next.path">{{ next.title || next.path }}</router-link>→
-          </span>
-        </p>
-      </div>
-      <slot name="bottom"/>
     </div>
   </div>
 </template>
@@ -192,5 +194,51 @@ function flatten(items, res) {
   @include desktop {
     padding: $padding-size-xl 0 $padding-size-xxl;
   }
+  > .inner {
+    max-width: 720px;
+    margin: 0 auto;
+    @include wide {
+      max-width: 800px;
+    }
+  }
+}
+
+.content {
+  > *:not(:last-child) {
+    margin-bottom: $space-size-md;
+  }
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    font-family: Nunito, $font-sans;
+    font-weight: 700;
+  }
+  > h1 {
+    font-size: $font-size-xxl;
+  }
+  > h2 {
+    font-size: $font-size-xl;
+  }
+}
+
+a.header-anchor {
+  font-size: 0.85em;
+  float: left;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  margin-top: 0.125em;
+  opacity: 0;
+}
+
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor,
+h5:hover .header-anchor,
+h6:hover .header-anchor {
+  opacity: 1;
 }
 </style>

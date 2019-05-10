@@ -127,7 +127,7 @@ export default {
 
 .section.is-hero {
   padding: 2.5em 0 3.5em;
-  background-color: $convert-hero-background-color;
+  background-color: $hero-background-color;
 }
 
 .section.is-about {

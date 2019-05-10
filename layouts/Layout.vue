@@ -69,9 +69,9 @@ export default {
       const userPageClass = this.$page.frontmatter.pageClass;
       return [
         {
-          "no-navbar": !this.shouldShowNavbar,
-          "menu-open": this.isMenuOpen,
-          "no-sidebar": !this.shouldShowSidebar
+          "is-no-navbar": !this.shouldShowNavbar,
+          "is-menu-open": this.isMenuOpen,
+          "is-no-sidebar": !this.shouldShowSidebar
         },
         userPageClass
       ];
@@ -110,26 +110,16 @@ body {
 }
 
 .theme {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: auto auto 1fr auto;
-  grid-template-areas:
-    "header"
-    "aside"
-    "main"
-    "footer";
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   min-height: 100vh;
-  > .header {
-    grid-area: header;
-  }
-  > .aside {
-    grid-area: aside;
-  }
+  padding-top: $header-height;
   > .main {
-    grid-area: main;
+    flex: 1 0 0%;
   }
   > .footer {
-    grid-area: footer;
+    flex: none;
   }
 }
 
@@ -145,6 +135,7 @@ pre[class*="language-"] {
 body,
 .header,
 .section.is-hero,
+.section.is-feature,
 .button.is-plain.is-hero,
 .menu,
 .footer {

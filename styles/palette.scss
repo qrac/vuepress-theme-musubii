@@ -17,8 +17,6 @@ $pattern-display-mediaquery: mobile, fablet, tablet, desktop, wide,
 // / Project
 //----------------------------------------------------
 
-$transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !default;
-
 $theme-light-header-background-color: $cyan-500 !default;
 $theme-light-header-border-color: transparent !default;
 $theme-light-hero-background-color: $cyan-500 !default;
@@ -33,3 +31,12 @@ $convert-header-background-color: if($use-css-variables == true, var(--header-ba
 $convert-header-border-color: if($use-css-variables == true, var(--header-border-color), $theme-light-header-border-color) !default;
 $convert-hero-background-color: if($use-css-variables == true, var(--hero-background-color), $theme-light-hero-background-color) !default;
 $convert-footer-background-color: if($use-css-variables == true, var(--footer-background-color), $theme-light-footer-background-color) !default;
+
+$site-logo-width: 10.375em !default;
+$header-height: 4.5em !default;
+$header-background-color: $convert-header-background-color !default;
+$header-border-color: $convert-header-border-color !default;
+$hero-background-color: $convert-hero-background-color !default;
+$footer-background-color: $convert-footer-background-color !default;
+
+$transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !default;

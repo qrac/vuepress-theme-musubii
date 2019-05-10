@@ -101,6 +101,7 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
   display: block;
   padding-left: $padding-size-md;
   margin-bottom: $margin-size-xs;
+  &:hover,
   &.is-active {
     color: $convert-primary-strong;
   }

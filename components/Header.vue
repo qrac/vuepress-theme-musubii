@@ -18,10 +18,10 @@
             >{{ $siteTitle }}</span>
           </router-link>
         </div>
-        <div class="column is-mobile-tablet-none">
+        <div class="column is-mobile-0 is-mobile-tablet-none">
           <NavLinks class="can-hide"/>
         </div>
-        <div class="column is-mobile-0 is-mobile-tablet-none">
+        <div class="column is-mobile-tablet-none">
           <SearchBox/>
         </div>
         <div class="column">
@@ -54,14 +54,19 @@ export default {
 @import "@theme/styles/palette.scss";
 
 .header {
-  position: relative;
-  padding: $padding-size-md 0;
-  background-color: $convert-header-background-color;
-  box-shadow: 0 1px 0 $convert-header-border-color;
-  @include desktop {
-    padding: $padding-size-xl 0;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $header-height;
+  background-color: $header-background-color;
+  box-shadow: 0 1px 0 $header-border-color;
+  z-index: 100;
   > .inner {
+    flex: none;
+    width: 100%;
     max-width: 100%;
     margin: 0 auto;
     padding: 0 $padding-size-sm;
@@ -80,7 +85,7 @@ export default {
   }
   .site-logo,
   .site-logo[src$=".svg"] {
-    max-width: 188px;
+    width: $site-logo-width;
   }
   .nav-links {
     display: flex;
@@ -101,9 +106,21 @@ export default {
       background-color: transparent;
       border-color: $light;
       color: $light;
+      @include placeholder {
+        color: $convert-text-light-4;
+      }
+    }
+    .suggestions {
+      width: 480px;
+      &:before,
+      &:after {
+        left: auto;
+        right: 10%;
+      }
     }
   }
-  .toggle-theme-button {
+  .toggle-theme-button,
+  .toggle-menu-button {
     .button.is-outline {
       background-color: transparent;
       border-color: $light;
@@ -112,6 +129,9 @@ export default {
       }
       .icon {
         color: $light;
+      }
+      .icon.is-bars > .bar {
+        background-color: $light;
       }
     }
   }

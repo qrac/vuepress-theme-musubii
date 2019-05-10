@@ -24,11 +24,14 @@ export default {
 .sidebar {
   flex: none;
   width: 214px;
+  //border-right: 1px solid $convert-border;
 }
 
 .sidebar-contents {
   position: sticky;
-  top: 0;
+  top: $header-height;
+  max-height: calc(100vh - #{$header-height});
   padding: $padding-size-xl $padding-size-lg $padding-size-xxl 0;
+  overflow: auto;
 }
 </style>

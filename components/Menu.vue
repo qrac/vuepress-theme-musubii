@@ -25,7 +25,7 @@ export default {
 <style lang="scss">
 @import "@theme/styles/palette.scss";
 
-:not(.menu-open) {
+:not(.is-menu-open) {
   > .menu {
     display: none;
     border-bottom: none;
@@ -33,8 +33,15 @@ export default {
 }
 
 .menu {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  width: 100%;
+  max-height: calc(100vh - #{$header-height});
   background-color: $convert-background;
   border-bottom: 1px solid $convert-border;
+  overflow-y: auto;
+  z-index: 99;
   > *:not(:last-child) {
     border-bottom: 1px solid $convert-border;
   }

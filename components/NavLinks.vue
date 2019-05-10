@@ -97,6 +97,6 @@ export default {
 @import "@theme/styles/palette.scss";
 
 .nav-links {
-  font-family: nunito, $font-sans;
+  font-family: Nunito, $font-sans;
 }
 </style>
