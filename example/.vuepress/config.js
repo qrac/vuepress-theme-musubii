@@ -1,4 +1,4 @@
-const pjt = require("../../project.json")
+const pjt = require("./project.json")
 
 module.exports = {
   locales: {
