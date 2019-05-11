@@ -1,7 +1,7 @@
 <template>
   <div class="theme" :class="pageClasses">
-    <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu"/>
-    <Menu :items="sidebarItems" :open="isMenuOpen">
+    <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu" :menu-open="menuOpen"/>
+    <Menu :items="sidebarItems" :menu-open="menuOpen">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Menu>
@@ -30,7 +30,7 @@ export default {
   components: { Home, Page, Menu, Header, Footer },
   data() {
     return {
-      isMenuOpen: false
+      menuOpen: false
     };
   },
   computed: {
@@ -70,7 +70,7 @@ export default {
       return [
         {
           "is-no-navbar": !this.shouldShowNavbar,
-          "is-menu-open": this.isMenuOpen,
+          "is-menu-open": this.menuOpen,
           "is-no-sidebar": !this.shouldShowSidebar
         },
         userPageClass
@@ -88,12 +88,12 @@ export default {
     });
     this.$router.afterEach(() => {
       nprogress.done();
-      this.isMenuOpen = false;
+      this.menuOpen = false;
     });
   },
   methods: {
     toggleMenu(to) {
-      this.isMenuOpen = typeof to === "boolean" ? to : !this.isMenuOpen;
+      this.menuOpen = typeof to === "boolean" ? to : !this.menuOpen;
     }
   }
 };

@@ -30,7 +30,7 @@
               <DarkThemeButton/>
             </div>
             <div class="column is-desktop-none">
-              <MenuButton @toggle-menu="$emit('toggle-menu')"/>
+              <MenuButton @toggle-menu="$emit('toggle-menu')" :menu-open="menuOpen"/>
             </div>
           </div>
         </div>
@@ -46,7 +46,8 @@ import DarkThemeButton from "@theme/components/DarkThemeButton";
 import MenuButton from "@theme/components/MenuButton.vue";
 
 export default {
-  components: { NavLinks, SearchBox, DarkThemeButton, MenuButton }
+  components: { NavLinks, SearchBox, DarkThemeButton, MenuButton },
+  props: ["menu-open"]
 };
 </script>
 

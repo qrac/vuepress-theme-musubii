@@ -6,7 +6,7 @@
       @before-leave="beforeLeave"
       @leave="leave"
     >
-      <div class="menu-contents" v-show="open">
+      <div class="menu-contents" v-show="menuOpen">
         <div class="box is-padding-top-md is-padding-right-sm is-padding-bottom-md is-padding-left">
           <SearchBox/>
         </div>
@@ -27,7 +27,7 @@ import NavLinks from "@theme/components/NavLinks.vue";
 export default {
   name: "Menu",
   components: { SearchBox, SidebarLinks, NavLinks },
-  props: ["open", "items"],
+  props: ["menu-open", "items"],
   methods: {
     beforeEnter: function(el) {
       el.style.height = "0";
