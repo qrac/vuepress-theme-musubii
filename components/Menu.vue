@@ -7,13 +7,15 @@
       @leave="leave"
     >
       <div class="menu-contents" v-show="menuOpen">
-        <div class="box is-padding-top-md is-padding-right-sm is-padding-bottom-md is-padding-left">
+        <div class="menu-header">
           <SearchBox/>
         </div>
-        <NavLinks/>
-        <slot name="top"/>
-        <SidebarLinks :depth="0" :items="items"/>
-        <slot name="bottom"/>
+        <div class="menu-links">
+          <NavLinks/>
+          <slot name="top"/>
+          <SidebarLinks :depth="0" :items="items"/>
+          <slot name="bottom"/>
+        </div>
       </div>
     </transition>
   </aside>
@@ -55,26 +57,49 @@ export default {
   width: 100%;
   max-height: calc(100vh - #{$header-height});
   background-color: $convert-background;
-  overflow-y: auto;
   z-index: 99;
-  @include desktop {
-    display: none;
-    border-bottom: none;
-  }
 }
 
 .menu-contents {
+  border-top: 1px solid $convert-border;
   border-bottom: 1px solid $convert-border;
   transition: height 0.2s ease-in-out;
-  overflow: hidden;
+  &.v-enter,
+  &.v-enter-to,
+  &.v-leave,
+  &.v-leave-to {
+    overflow: hidden;
+  }
   > *:not(:last-child) {
     border-bottom: 1px solid $convert-border;
+  }
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
+  height: $menu-header-height;
+  padding: 0 $padding-size-sm;
+  > * {
+    flex: none;
+    width: 100%;
+  }
+}
+
+.menu-links {
+  max-height: calc(100vh - #{$header-height} - #{$menu-header-height});
+  overflow-y: auto;
+  > *:not(:last-child) {
+    border-bottom: 1px solid $convert-border;
+  }
+  > *:last-child {
+    @include safe-area-padding(bottom);
   }
   > .nav-links,
   > .sidebar-links {
     padding: $padding-size-md;
   }
-  .nav-links {
+  > .nav-links {
     .nav-link,
     .repo-link {
       display: block;
