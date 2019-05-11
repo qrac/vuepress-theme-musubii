@@ -1,7 +1,7 @@
 <template>
   <div class="theme" :class="pageClasses">
     <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu"/>
-    <Menu :items="sidebarItems" @toggle-menu="toggleMenu">
+    <Menu :items="sidebarItems" :open="isMenuOpen">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Menu>

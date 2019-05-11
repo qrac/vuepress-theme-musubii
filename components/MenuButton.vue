@@ -32,6 +32,7 @@
 }
 
 .toggle-menu-button {
+  display: flex;
   .button.is-circle {
     width: calc(2em + (1px * 2));
     height: calc(2em + (1px * 2));
@@ -62,7 +63,7 @@
     }
     > .icon.is-bars,
     > .icon.is-bars > .bar {
-      transition: 0.12s ease-in;
+      transition: 0.2s ease-in-out;
     }
   }
 }
