@@ -99,7 +99,7 @@ export default {
 };
 </script>
 
-<style src="@theme/styles/style.scss" lang="scss"></style>
+<style src="@theme/styles/index.scss" lang="scss"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="scss">
