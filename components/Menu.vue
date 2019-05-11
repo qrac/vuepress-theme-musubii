@@ -48,13 +48,6 @@ export default {
 <style lang="scss">
 @import "@theme/styles/palette.scss";
 
-:not(.is-menu-open) {
-  > .menu {
-    //display: none;
-    border-bottom: none;
-  }
-}
-
 .menu {
   position: fixed;
   top: $header-height;
@@ -62,7 +55,6 @@ export default {
   width: 100%;
   max-height: calc(100vh - #{$header-height});
   background-color: $convert-background;
-  border-bottom: 1px solid $convert-border;
   overflow-y: auto;
   z-index: 99;
   @include desktop {
@@ -72,6 +64,7 @@ export default {
 }
 
 .menu-contents {
+  border-bottom: 1px solid $convert-border;
   transition: height 0.2s ease-in-out;
   overflow: hidden;
   > *:not(:last-child) {
