@@ -105,10 +105,6 @@ export default {
 @import "@temp/palette.scss";
 @import "@temp/style.scss";
 
-body {
-  transition: $transition-change-theme;
-}
-
 .theme {
   display: flex;
   flex-direction: column;

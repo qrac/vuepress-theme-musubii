@@ -21,7 +21,7 @@
         </div>
         <div class="column">
           <div class="grid is-middle is-gap-column-xs">
-            <div class="column">
+            <div class="column is-hidden-use-css-variables-false">
               <DarkThemeButton/>
             </div>
             <div class="column is-desktop-none">
@@ -150,6 +150,12 @@ export default {
   font-weight: $site-title-text-font-weight;
   font-family: $site-title-text-font-family;
   @if $site-title-text-hidden == true {
+    display: none;
+  }
+}
+
+.is-hidden-use-css-variables-false {
+  @if $use-css-variables == false {
     display: none;
   }
 }
