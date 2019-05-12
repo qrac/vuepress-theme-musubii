@@ -24,7 +24,7 @@
                 :to="data.actionLink"
               >
                 <i class="fas fa-book is-margin-right-sm" aria-hidden="true"></i>
-                <span class="text is-weight-900 is-font-nunito">{{ data.actionText }}</span>
+                <span class="text is-weight-900 is-font-sans-en">{{ data.actionText }}</span>
               </router-link>
             </div>
             <p

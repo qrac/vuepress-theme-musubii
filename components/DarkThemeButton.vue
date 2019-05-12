@@ -41,31 +41,29 @@ export default {
     initDarkTheme: function() {
       const darkTheme = localStorage.getItem("darkTheme");
       if (darkTheme === null) {
-        //console.log("Nothing darkTheme; default to `false`");
         return false;
       } else {
-        //console.log("Using darkTheme value " + darkTheme);
         return darkTheme == "true";
       }
-    }
-  },
-  mounted() {
-    //console.log("Dark Theme Mounted: " + this.darkTheme);
-    if (this.darkTheme === true) {
-      document.body.setAttribute("data-theme", "dark");
-    } else {
-      document.body.setAttribute("data-theme", "light");
-    }
-  },
-  watch: {
-    darkTheme: function() {
-      localStorage.setItem("darkTheme", JSON.stringify(this.darkTheme));
-      //console.log("Dark Theme: " + JSON.stringify(this.darkTheme));
+    },
+    useDarkTheme: function() {
       if (this.darkTheme === true) {
         document.body.setAttribute("data-theme", "dark");
       } else {
         document.body.setAttribute("data-theme", "light");
       }
+    },
+    saveDarkTheme: function() {
+      localStorage.setItem("darkTheme", JSON.stringify(this.darkTheme));
+    }
+  },
+  mounted() {
+    this.useDarkTheme();
+  },
+  watch: {
+    darkTheme: function() {
+      this.saveDarkTheme();
+      this.useDarkTheme();
     }
   }
 };
@@ -73,7 +71,7 @@ export default {
 
 
 <style lang="scss">
-@import "@theme/styles/palette.scss";
+@import "@temp/palette.scss";
 
 .toggle-theme-button {
   display: flex;

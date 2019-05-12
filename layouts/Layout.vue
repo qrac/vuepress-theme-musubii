@@ -99,11 +99,11 @@ export default {
 };
 </script>
 
-<style src="@theme/styles/index.scss" lang="scss"></style>
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="scss">
-@import "@theme/styles/palette.scss";
+@import "@temp/palette.scss";
+@import "@temp/style.scss";
 
 body {
   transition: $transition-change-theme;
