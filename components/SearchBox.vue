@@ -172,7 +172,7 @@ export default {
 
 .search-box {
   position: relative;
-  font-family: Nunito, $font-sans;
+  font-family: $font-sans-en;
   .icon.is-search {
     position: absolute;
     top: calc(1em + (1px * 1));

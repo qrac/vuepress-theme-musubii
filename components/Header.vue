@@ -58,7 +58,7 @@ export default {
   width: 100%;
   height: $header-height;
   background-color: $header-background-color;
-  box-shadow: 0 1px 0 $header-border-color;
+  box-shadow: $header-box-shadow;
   z-index: 100;
   > .inner {
     flex: none;
@@ -147,7 +147,7 @@ export default {
   flex: none;
   color: $site-title-text-color;
   font-size: $site-title-text-font-size;
-  font-weight: 900;
-  font-family: Nunito, $font-sans;
+  font-weight: $site-title-text-font-weight;
+  font-family: $site-title-text-font-family;
 }
 </style>

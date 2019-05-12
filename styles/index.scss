@@ -18,7 +18,7 @@
   @include export-theme-light {
     --site-title-text-color: #{$theme-light-site-title-text-color};
     --header-background-color: #{$theme-light-header-background-color};
-    --header-border-color: #{$theme-light-header-border-color};
+    --header-box-shadow-color: #{$theme-light-header-box-shadow-color};
     --hero-background-color: #{$theme-light-hero-background-color};
     --footer-background-color: #{$theme-light-footer-background-color};
   }
@@ -28,7 +28,7 @@
   @include export-theme-dark {
     --site-title-text-color: #{$theme-dark-site-title-text-color};
     --header-background-color: #{$theme-dark-header-background-color};
-    --header-border-color: #{$theme-dark-header-border-color};
+    --header-box-shadow-color: #{$theme-dark-header-box-shadow-color};
     --hero-background-color: #{$theme-dark-hero-background-color};
     --footer-background-color: #{$theme-dark-footer-background-color};
   }

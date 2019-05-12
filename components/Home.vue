@@ -4,7 +4,7 @@
       <div class="inner is-padding-right-md is-padding-left-md">
         <div class="grid is-middle is-center is-gap-xxl">
           <div class="column is-space">
-            <p class="text is-light is-weight-700 is-font-nunito" v-if="data.hero.heading1">
+            <p class="text is-light is-weight-700 is-font-sans-en" v-if="data.hero.heading1">
               <span class="text is-block is-hero-1">{{ data.hero.heading1 }}</span>
               <span
                 class="text is-block is-hero-2"
@@ -28,7 +28,7 @@
               </router-link>
             </div>
             <p
-              class="text is-light is-center is-sm is-strong is-font-nunito"
+              class="text is-light is-center is-sm is-strong is-font-sans-en"
               v-if="musubiiPkg.repository"
             >
               <i class="fab fa-github" aria-hidden="true"></i>

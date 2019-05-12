@@ -19,31 +19,34 @@ $pattern-display-mediaquery: mobile, fablet, tablet, desktop, wide,
 
 $theme-light-site-title-text-color: $light !default;
 $theme-light-header-background-color: $cyan-500 !default;
-$theme-light-header-border-color: transparent !default;
+$theme-light-header-box-shadow-color: transparent !default;
 $theme-light-hero-background-color: $cyan-500 !default;
 $theme-light-footer-background-color: $blue-grey-800 !default;
 
 $theme-dark-site-title-text-color: $light-2 !default;
-$theme-dark-header-background-color: $convert-background-2 !default;
-$theme-dark-header-border-color: transparent !default;
-$theme-dark-hero-background-color: $convert-background-2 !default;
-$theme-dark-footer-background-color: $convert-background-2 !default;
+$theme-dark-header-background-color: lighten($grey-900, 5%) !default;
+$theme-dark-header-box-shadow-color: transparent !default;
+$theme-dark-hero-background-color: lighten($grey-900, 5%) !default;
+$theme-dark-footer-background-color: lighten($grey-900, 5%) !default;
 
 $convert-site-title-text-color: if($use-css-variables == true, var(--site-title-text-color), $theme-light-site-title-text-color) !default;
 $convert-header-background-color: if($use-css-variables == true, var(--header-background-color), $theme-light-header-background-color) !default;
-$convert-header-border-color: if($use-css-variables == true, var(--header-border-color), $theme-light-header-border-color) !default;
+$convert-header-box-shadow-color: if($use-css-variables == true, var(--header-box-shadow-color), $theme-light-header-box-shadow-color) !default;
 $convert-hero-background-color: if($use-css-variables == true, var(--hero-background-color), $theme-light-hero-background-color) !default;
 $convert-footer-background-color: if($use-css-variables == true, var(--footer-background-color), $theme-light-footer-background-color) !default;
+
+$font-sans-en: Nunito, $font-sans !default;
+$transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !default;
 
 $site-title-logo-width: 10.375em !default;
 $site-title-text-hidden: true !default;
 $site-title-text-color: $convert-site-title-text-color !default;
 $site-title-text-font-size: 1.5em !default;
+$site-title-text-font-weight: 900 !default;
+$site-title-text-font-family: $font-sans-en !default;
 $header-height: 4.5em !default;
 $header-background-color: $convert-header-background-color !default;
-$header-border-color: $convert-header-border-color !default;
+$header-box-shadow: 0 1px 0 $convert-header-box-shadow-color !default;
 $menu-header-height: 4em !default;
 $hero-background-color: $convert-hero-background-color !default;
 $footer-background-color: $convert-footer-background-color !default;
-
-$transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !default;

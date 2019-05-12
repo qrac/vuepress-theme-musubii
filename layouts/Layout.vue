@@ -128,8 +128,8 @@ pre[class*="language-"] {
   -webkit-overflow-scrolling: touch;
 }
 
-.is-font-nunito {
-  font-family: Nunito, $font-sans;
+.is-font-sans-en {
+  font-family: $font-sans-en;
 }
 
 body,

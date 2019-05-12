@@ -82,6 +82,6 @@ function resolveOpenGroupIndex(route, items) {
 @import "@theme/styles/palette.scss";
 
 .sidebar-links {
-  font-family: Nunito, $font-sans;
+  font-family: $font-sans-en;
 }
 </style>

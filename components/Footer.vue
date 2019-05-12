@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="inner">
-      <p class="text is-light is-strong is-center is-font-nunito" v-if="musubiiPkg.license">
+      <p class="text is-light is-strong is-center is-font-sans-en" v-if="musubiiPkg.license">
         <span class="text">License:&nbsp;</span>
         <span class="text">{{ musubiiPkg.license }}</span>
         &nbsp;/&nbsp;
