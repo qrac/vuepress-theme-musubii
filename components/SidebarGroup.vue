@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/palette.scss";
+@import "@temp/palette.scss";
 
 .sidebar-heading {
   margin-bottom: $margin-size-xs;

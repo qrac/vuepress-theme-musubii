@@ -91,7 +91,7 @@ function renderChildren(h, children, path, route, maxDepth, depth = 1) {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/palette.scss";
+@import "@temp/palette.scss";
 
 .sidebar-sub-headers {
   padding-left: $padding-size-md;

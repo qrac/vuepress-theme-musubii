@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/palette.scss";
+@import "@temp/palette.scss";
 
 .footer {
   padding: $padding-size-xl $padding-size-sm;

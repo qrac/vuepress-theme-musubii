@@ -168,7 +168,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/palette.scss";
+@import "@temp/palette.scss";
 
 .search-box {
   position: relative;

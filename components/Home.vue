@@ -123,7 +123,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@theme/styles/palette.scss";
+@import "@temp/palette.scss";
 
 .section.is-hero {
   padding: 2.5em 0 3.5em;
