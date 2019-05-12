@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import process from "process";
+
 export default {
   data() {
     return {
@@ -39,11 +41,13 @@ export default {
   },
   methods: {
     initDarkTheme: function() {
-      const darkTheme = localStorage.getItem("darkTheme");
-      if (darkTheme === null) {
-        return false;
-      } else {
-        return darkTheme == "true";
+      if (process.browser) {
+        const darkTheme = localStorage.getItem("darkTheme");
+        if (darkTheme === null) {
+          return false;
+        } else {
+          return darkTheme == "true";
+        }
       }
     },
     useDarkTheme: function() {
@@ -54,7 +58,9 @@ export default {
       }
     },
     saveDarkTheme: function() {
-      localStorage.setItem("darkTheme", JSON.stringify(this.darkTheme));
+      if (process.browser) {
+        localStorage.setItem("darkTheme", JSON.stringify(this.darkTheme));
+      }
     }
   },
   mounted() {
