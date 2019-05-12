@@ -1,5 +1,9 @@
 const { fs, path } = require("@vuepress/shared-utils")
 
+/**
+ * @param options
+ * @param {AppContext} ctx
+ */
 module.exports = (options, ctx) => ({
   name: "vuepress-plugin-palette-scss",
 
