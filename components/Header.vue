@@ -3,23 +3,18 @@
     <div class="inner">
       <div class="grid is-middle is-between is-gap-column-md">
         <div class="column">
-          <router-link :to="$localePath" class="box">
+          <router-link :to="$localePath" class="site-titles">
             <img
-              class="site-logo"
+              class="site-title-logo"
               v-if="$site.themeConfig.logo"
               :src="$withBase($site.themeConfig.logo)"
               :alt="$siteTitle"
             >
-            <span
-              ref="siteName"
-              class="site-name"
-              v-else-if="$siteTitle"
-              :class="{ 'can-hide': $site.themeConfig.logo }"
-            >{{ $siteTitle }}</span>
+            <span ref="siteName" class="site-title-text">{{ $siteTitle }}</span>
           </router-link>
         </div>
         <div class="column is-mobile-0 is-mobile-tablet-none">
-          <NavLinks class="can-hide"/>
+          <NavLinks/>
         </div>
         <div class="column is-mobile-tablet-none">
           <SearchBox/>
@@ -84,10 +79,6 @@ export default {
       width: $section-inner-width-wide;
     }
   }
-  .site-logo,
-  .site-logo[src$=".svg"] {
-    width: $site-logo-width;
-  }
   .nav-links {
     display: flex;
     .item {
@@ -136,5 +127,27 @@ export default {
       }
     }
   }
+}
+
+.site-titles {
+  display: flex;
+  align-items: center;
+  > *:not(:first-child) {
+    margin-left: $space-size-sm;
+  }
+}
+
+.site-title-logo,
+.site-title-logo[src$=".svg"] {
+  flex: none;
+  width: $site-title-logo-width;
+}
+
+.site-title-text {
+  flex: none;
+  color: $site-title-text-color;
+  font-size: $site-title-text-font-size;
+  font-weight: 900;
+  font-family: Nunito, $font-sans;
 }
 </style>

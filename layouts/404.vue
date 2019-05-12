@@ -1,5 +1,5 @@
 <template>
-  <div class="theme-container">
+  <div class="theme">
     <div class="content">
       <h1>404</h1>
       <blockquote>{{ getMsg() }}</blockquote>
