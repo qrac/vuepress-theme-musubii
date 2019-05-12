@@ -1,5 +1,5 @@
 //----------------------------------------------------
-// Palette
+// Palette (Theme)
 //----------------------------------------------------
 
 //----------------------------------------------------
@@ -39,7 +39,7 @@ $font-sans-en: Nunito, $font-sans !default;
 $transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !default;
 
 $site-title-logo-width: 10.375em !default;
-$site-title-text-hidden: true !default;
+$site-title-text-hidden: false !default;
 $site-title-text-color: $convert-site-title-text-color !default;
 $site-title-text-font-size: 1.5em !default;
 $site-title-text-font-weight: 900 !default;

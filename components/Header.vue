@@ -149,5 +149,8 @@ export default {
   font-size: $site-title-text-font-size;
   font-weight: $site-title-text-font-weight;
   font-family: $site-title-text-font-family;
+  @if $site-title-text-hidden == true {
+    display: none;
+  }
 }
 </style>

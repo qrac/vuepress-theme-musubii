@@ -15,6 +15,8 @@ module.exports = {
       {
         componentsDir: [path.resolve(__dirname, "components")]
       }
-    ]
+    ],
+    "./plugins/palette-scss",
+    "./plugins/style-scss"
   ]
 }
