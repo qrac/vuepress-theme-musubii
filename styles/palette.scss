@@ -36,7 +36,7 @@ $convert-hero-background-color: if($use-css-variables == true, var(--hero-backgr
 $convert-footer-background-color: if($use-css-variables == true, var(--footer-background-color), $theme-light-footer-background-color) !default;
 
 $font-sans-en: Nunito, $font-sans !default;
-$transition-change-theme: background-color 0.875s ease-in, color 0.5s ease-in !default;
+$theme-change-transition: background-color 0.2s ease-in, color 0.2s ease-in !default;
 
 $site-title-logo-width: 10.375em !default;
 $site-title-text-hidden: false !default;

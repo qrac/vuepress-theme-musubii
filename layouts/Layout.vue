@@ -132,9 +132,8 @@ body,
 .header,
 .section.is-hero,
 .section.is-feature,
-.button.is-plain.is-hero,
 .menu,
 .footer {
-  transition: $transition-change-theme;
+  transition: $theme-change-transition;
 }
 </style>
