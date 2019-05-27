@@ -85,6 +85,13 @@ export default {
       padding: $padding-size-xs;
       color: $light;
       font-weight: 700;
+      a {
+        &:not(.external).router-link-active,
+        &:not(.external):hover {
+          margin-bottom: -2px;
+          border-bottom: 2px solid $cyan-a200;
+        }
+      }
       .icon {
         color: $light;
       }
