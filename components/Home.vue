@@ -43,7 +43,13 @@
             </p>
           </div>
           <div class="column" v-if="data.hero.image">
-            <img class="illust is-hero" :src="$withBase(data.hero.image)" alt="hero">
+            <img
+              class="illust is-hero"
+              :src="$withBase(data.hero.imageDark)"
+              alt="hero"
+              v-if="getDarkTheme"
+            >
+            <img class="illust is-hero" :src="$withBase(data.hero.image)" alt="hero" v-else>
           </div>
         </div>
       </div>
@@ -99,9 +105,11 @@
 
 <script>
 import musubiiPkg from "musubii/package.json";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   computed: {
+    ...mapGetters(["getDarkTheme"]),
     data() {
       return this.$page.frontmatter;
     },
