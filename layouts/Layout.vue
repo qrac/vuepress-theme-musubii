@@ -112,6 +112,7 @@ export default {
   min-height: 100vh;
   padding-top: $header-height;
   > .main {
+    display: flex;
     flex: 1 0 0%;
   }
   > .footer {

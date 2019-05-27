@@ -133,6 +133,11 @@ export default {
 <style lang="scss">
 @import "@temp/palette.scss";
 
+.home {
+  max-width: 100%;
+  width: 100%;
+}
+
 .section.is-hero {
   padding: 2.5em 0 3.5em;
   background-color: $hero-background-color;

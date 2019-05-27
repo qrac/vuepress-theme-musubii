@@ -168,6 +168,7 @@ function flatten(items, res) {
 
 .page {
   max-width: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 0 $padding-size-sm;
   @include fablet {
