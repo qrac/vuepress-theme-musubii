@@ -7,6 +7,7 @@ hero:
     - MUSUBiiは日本語サイトのインブラウザデザインを想定した
     - シンプルで薄味のレスポンシブ対応CSSフレームワークです。
   image: /img/illust-hero.svg
+  imageDark: /img/illust-hero-dark.svg
 actionText: Getting Started
 actionLink: /getting-started/
 about:

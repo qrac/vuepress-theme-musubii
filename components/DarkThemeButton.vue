@@ -1,12 +1,12 @@
 <template>
   <div class="toggle-theme-button">
-    <button class="button is-outline is-circle" type="button" @click="darkTheme=!darkTheme">
+    <button class="button is-outline is-circle" type="button" @click="toggleDarkTheme">
       <transition>
         <svg
           class="icon is-sun"
           viewBox="0 0 512 512"
           xmlns="http://www.w3.org/2000/svg"
-          v-if="darkTheme"
+          v-if="getDarkTheme"
           key="a"
         >
           <path
@@ -31,35 +31,19 @@
 </template>
 
 <script>
-import process from "process";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
-  data() {
-    return {
-      darkTheme: this.initDarkTheme()
-    };
+  computed: {
+    ...mapGetters(["getDarkTheme"])
   },
   methods: {
-    initDarkTheme: function() {
-      if (process.browser) {
-        const darkTheme = localStorage.getItem("darkTheme");
-        if (darkTheme === null) {
-          return false;
-        } else {
-          return darkTheme == "true";
-        }
-      }
-    },
+    ...mapMutations(["toggleDarkTheme"]),
     useDarkTheme: function() {
-      if (this.darkTheme === true) {
+      if (this.getDarkTheme === true) {
         document.body.setAttribute("data-theme", "dark");
       } else {
         document.body.setAttribute("data-theme", "light");
-      }
-    },
-    saveDarkTheme: function() {
-      if (process.browser) {
-        localStorage.setItem("darkTheme", JSON.stringify(this.darkTheme));
       }
     }
   },
@@ -67,8 +51,7 @@ export default {
     this.useDarkTheme();
   },
   watch: {
-    darkTheme: function() {
-      this.saveDarkTheme();
+    getDarkTheme: function() {
       this.useDarkTheme();
     }
   }
