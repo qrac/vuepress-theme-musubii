@@ -47,7 +47,7 @@ export default {
       }
     }
   },
-  mounted() {
+  created() {
     this.useDarkTheme();
   },
   watch: {
