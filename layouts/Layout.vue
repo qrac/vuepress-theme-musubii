@@ -1,5 +1,5 @@
 <template>
-  <div class="theme" :class="pageClasses" :data-theme="setDataTheme">
+  <div class="theme" :class="pageClasses">
     <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu" :menu-open="menuOpen"/>
     <Menu :items="sidebarItems" :menu-open="menuOpen" class="is-desktop-none">
       <slot name="sidebar-top" slot="top"/>
@@ -18,15 +18,12 @@
 
 <script>
 import Vue from "vue";
-import { mapGetters } from "vuex";
 import nprogress from "nprogress";
-
 import Header from "@theme/components/Header.vue";
 import Footer from "@theme/components/Footer.vue";
 import Home from "@theme/components/Home.vue";
 import Page from "@theme/components/Page.vue";
 import Menu from "@theme/components/Menu.vue";
-
 import { resolveSidebarItems } from "../util";
 
 export default {
@@ -37,14 +34,6 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getDarkTheme"]),
-    setDataTheme() {
-      if (this.getDarkTheme === true) {
-        return "dark";
-      } else {
-        return "light";
-      }
-    },
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
       const { frontmatter } = this.$page;
