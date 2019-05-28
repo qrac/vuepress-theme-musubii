@@ -6,9 +6,15 @@
           <router-link :to="$localePath" class="site-titles">
             <img
               class="site-title-logo"
-              v-if="$site.themeConfig.logo"
+              :src="$withBase($site.themeConfig.logoDark)"
+              :alt="$siteTitle"
+              v-if="getDarkTheme && $site.themeConfig.logo"
+            >
+            <img
+              class="site-title-logo"
               :src="$withBase($site.themeConfig.logo)"
               :alt="$siteTitle"
+              v-else-if="$site.themeConfig.logo"
             >
             <span ref="siteName" class="site-title-text">{{ $siteTitle }}</span>
           </router-link>
@@ -35,6 +41,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
 import NavLinks from "@theme/components/NavLinks.vue";
 import SearchBox from "@theme/components/SearchBox";
 import DarkThemeButton from "@theme/components/DarkThemeButton";
@@ -42,6 +49,9 @@ import MenuButton from "@theme/components/MenuButton.vue";
 
 export default {
   components: { NavLinks, SearchBox, DarkThemeButton, MenuButton },
+  computed: {
+    ...mapGetters(["getDarkTheme"])
+  },
   props: ["menu-open"]
 };
 </script>
@@ -83,17 +93,17 @@ export default {
     display: flex;
     .item {
       padding: $padding-size-xs;
-      color: $light;
-      font-weight: 700;
+      color: $header-nav-link-color;
+      font-weight: $header-nav-link-font-weight;
       a {
         &:not(.external).router-link-active,
         &:not(.external):hover {
-          margin-bottom: -2px;
-          border-bottom: 2px solid $cyan-a200;
+          margin-bottom: -$header-nav-link-border-width;
+          border-bottom: $header-nav-link-border;
         }
       }
       .icon {
-        color: $light;
+        color: $header-nav-link-icon-color;
       }
     }
   }

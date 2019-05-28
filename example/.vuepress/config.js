@@ -87,6 +87,7 @@ module.exports = {
     editLinks: true,
     lastUpdated: "Last Updated",
     logo: "/img/logo.svg",
+    logoDark: "/img/logo-dark.svg",
     nav: [
       {
         text: "Getting Started",
