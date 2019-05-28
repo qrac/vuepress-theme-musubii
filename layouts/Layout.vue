@@ -39,7 +39,8 @@ export default {
   computed: {
     ...mapGetters(["getDarkTheme"]),
     setDataTheme() {
-      if (this.getDarkTheme === true) {
+      const darkTheme = this.getDarkTheme;
+      if (darkTheme === true) {
         return "dark";
       } else {
         return "light";
