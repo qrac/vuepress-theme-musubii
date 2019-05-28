@@ -21,18 +21,27 @@ $pattern-display-mediaquery: mobile, fablet, tablet, desktop, wide,
 $theme-light-site-title-text-color: $light !default;
 $theme-light-header-background-color: $cyan-500 !default;
 $theme-light-header-box-shadow-color: transparent !default;
+$theme-light-header-nav-link-color: $light !default;
+$theme-light-header-nav-link-border-color: $cyan-a200 !default;
+$theme-light-header-nav-link-icon-color: $light !default;
 $theme-light-hero-background-color: $cyan-500 !default;
 $theme-light-footer-background-color: $blue-grey-800 !default;
 
 $theme-dark-site-title-text-color: $light-2 !default;
 $theme-dark-header-background-color: lighten($grey-900, 5%) !default;
 $theme-dark-header-box-shadow-color: transparent !default;
+$theme-dark-header-nav-link-color: $light-2 !default;
+$theme-dark-header-nav-link-border-color: $cyan-700 !default;
+$theme-dark-header-nav-link-icon-color: $light-2 !default;
 $theme-dark-hero-background-color: lighten($grey-900, 5%) !default;
 $theme-dark-footer-background-color: lighten($grey-900, 5%) !default;
 
 $convert-site-title-text-color: if($use-css-variables == true, var(--site-title-text-color), $theme-light-site-title-text-color) !default;
 $convert-header-background-color: if($use-css-variables == true, var(--header-background-color), $theme-light-header-background-color) !default;
 $convert-header-box-shadow-color: if($use-css-variables == true, var(--header-box-shadow-color), $theme-light-header-box-shadow-color) !default;
+$convert-header-nav-link-color: if($use-css-variables == true, var(--header-nav-link-color), $theme-light-header-nav-link-color) !default;
+$convert-header-nav-link-border-color: if($use-css-variables == true, var(--header-nav-link-border-color), $theme-light-header-nav-link-border-color) !default;
+$convert-header-nav-link-icon-color: if($use-css-variables == true, var(--header-nav-link-icon-color), $theme-light-header-nav-link-icon-color) !default;
 $convert-hero-background-color: if($use-css-variables == true, var(--hero-background-color), $theme-light-hero-background-color) !default;
 $convert-footer-background-color: if($use-css-variables == true, var(--footer-background-color), $theme-light-footer-background-color) !default;
 
@@ -48,6 +57,11 @@ $site-title-text-font-family: $font-sans-en !default;
 $header-height: 4.5em !default;
 $header-background-color: $convert-header-background-color !default;
 $header-box-shadow: 0 1px 0 $convert-header-box-shadow-color !default;
+$header-nav-link-color: $convert-header-nav-link-color !default;
+$header-nav-link-font-weight: 700 !default;
+$header-nav-link-border-width: 2px !default;
+$header-nav-link-border: $header-nav-link-border-width solid $convert-header-nav-link-border-color !default;
+$header-nav-link-icon-color: $convert-header-nav-link-icon-color !default;
 $menu-header-height: 4em !default;
 $hero-background-color: $convert-hero-background-color !default;
 $footer-background-color: $convert-footer-background-color !default;

@@ -19,6 +19,9 @@
     --site-title-text-color: #{$theme-light-site-title-text-color};
     --header-background-color: #{$theme-light-header-background-color};
     --header-box-shadow-color: #{$theme-light-header-box-shadow-color};
+    --header-nav-link-color: #{$theme-light-header-nav-link-color};
+    --header-nav-link-border-color: #{$theme-light-header-nav-link-border-color};
+    --header-nav-link-icon-color: #{$theme-light-header-nav-link-icon-color};
     --hero-background-color: #{$theme-light-hero-background-color};
     --footer-background-color: #{$theme-light-footer-background-color};
   }
@@ -29,6 +32,9 @@
     --site-title-text-color: #{$theme-dark-site-title-text-color};
     --header-background-color: #{$theme-dark-header-background-color};
     --header-box-shadow-color: #{$theme-dark-header-box-shadow-color};
+    --header-nav-link-color: #{$theme-dark-header-nav-link-color};
+    --header-nav-link-border-color: #{$theme-dark-header-nav-link-border-color};
+    --header-nav-link-icon-color: #{$theme-dark-header-nav-link-icon-color};
     --hero-background-color: #{$theme-dark-hero-background-color};
     --footer-background-color: #{$theme-dark-footer-background-color};
   }
