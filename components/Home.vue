@@ -47,7 +47,7 @@
               class="illust is-hero"
               :src="$withBase(data.hero.imageDark)"
               alt="hero"
-              v-if="getDarkTheme"
+              v-if="getDarkTheme && data.hero.imageDark"
             >
             <img class="illust is-hero" :src="$withBase(data.hero.image)" alt="hero" v-else>
           </div>
