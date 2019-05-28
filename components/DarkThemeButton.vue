@@ -38,22 +38,7 @@ export default {
     ...mapGetters(["getDarkTheme"])
   },
   methods: {
-    ...mapMutations(["toggleDarkTheme"]),
-    useDarkTheme: function() {
-      if (this.getDarkTheme === true) {
-        document.body.setAttribute("data-theme", "dark");
-      } else {
-        document.body.setAttribute("data-theme", "light");
-      }
-    }
-  },
-  mounted() {
-    this.useDarkTheme();
-  },
-  watch: {
-    getDarkTheme: function() {
-      this.useDarkTheme();
-    }
+    ...mapMutations(["toggleDarkTheme"])
   }
 };
 </script>
