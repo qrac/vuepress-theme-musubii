@@ -1,5 +1,5 @@
 <template>
-  <div class="theme" :class="pageClasses" :data-theme="getThemeName">
+  <div class="theme" :class="[pageClasses, getThemeName]" :data-theme="getThemeName">
     <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu" :menu-open="menuOpen"/>
     <Menu :items="sidebarItems" :menu-open="menuOpen" class="is-desktop-none">
       <slot name="sidebar-top" slot="top"/>
