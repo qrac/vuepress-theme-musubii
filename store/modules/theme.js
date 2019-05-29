@@ -1,6 +1,6 @@
 const state = {
   dark: false,
-  name: "light"
+  name: ""
 }
 
 const getters = {
