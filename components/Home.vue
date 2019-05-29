@@ -105,7 +105,7 @@
 
 <script>
 import musubiiPkg from "musubii/package.json";
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   computed: {

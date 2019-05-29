@@ -5,6 +5,7 @@
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Menu>
+    {{ getThemeName }}
     <main class="main">
       <Home v-if="$page.frontmatter.home"/>
       <Page v-else :sidebar-items="sidebarItems">

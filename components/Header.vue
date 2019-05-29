@@ -8,7 +8,7 @@
               class="site-title-logo"
               :src="$withBase($site.themeConfig.logoDark)"
               :alt="$siteTitle"
-              v-if="getDarkTheme && $site.themeConfig.logo"
+              v-if="getDarkTheme && $site.themeConfig.logoDark"
             >
             <img
               class="site-title-logo"
