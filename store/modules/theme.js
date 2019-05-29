@@ -3,7 +3,10 @@ const state = {
 }
 
 const getters = {
-  getDarkTheme: state => state.dark
+  getDarkTheme: state => state.dark,
+  getThemeName(state) {
+    return state.dark ? "dark" : "light"
+  }
 }
 
 const mutations = {
