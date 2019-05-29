@@ -52,6 +52,9 @@ export default {
   computed: {
     ...mapGetters(["getDarkTheme"])
   },
+  methods: {
+    ...mapMutations(["toggleDarkTheme"])
+  },
   props: ["menu-open"]
 };
 </script>

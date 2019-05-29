@@ -19,7 +19,7 @@
 
 <script>
 import Vue from "vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import nprogress from "nprogress";
 import Header from "@theme/components/Header.vue";
 import Footer from "@theme/components/Footer.vue";
@@ -95,6 +95,7 @@ export default {
     });
   },
   methods: {
+    ...mapMutations(["toggleDarkTheme"]),
     toggleMenu(to) {
       this.menuOpen = typeof to === "boolean" ? to : !this.menuOpen;
     }
