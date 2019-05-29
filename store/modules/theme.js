@@ -1,17 +1,17 @@
 const state = {
-  dark: false
+  dark: false,
+  name: "light"
 }
 
 const getters = {
   getDarkTheme: state => state.dark,
-  getThemeName(state) {
-    return state.dark ? "dark" : "light"
-  }
+  getThemeName: state => state.name
 }
 
 const mutations = {
   toggleDarkTheme(state) {
-    state.dark = !state.dark
+    ;(state.dark = !state.dark),
+      state.dark ? (state.name = "dark") : (state.name = "light")
   }
 }
 
