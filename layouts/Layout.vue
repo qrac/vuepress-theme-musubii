@@ -1,5 +1,5 @@
 <template>
-  <div class="theme" :class="pageClasses" :data-theme="theme">
+  <div class="theme" :class="pageClasses" :data-theme="getThemeName">
     <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu" :menu-open="menuOpen"/>
     <Menu :items="sidebarItems" :menu-open="menuOpen" class="is-desktop-none">
       <slot name="sidebar-top" slot="top"/>
@@ -31,8 +31,7 @@ export default {
   components: { Home, Page, Menu, Header, Footer },
   data() {
     return {
-      menuOpen: false,
-      theme: this.getThemeName
+      menuOpen: false
     };
   },
   computed: {
@@ -81,7 +80,6 @@ export default {
     }
   },
   mounted() {
-    this.theme = this.getThemeName;
     window.addEventListener("scroll", this.onScroll);
     nprogress.configure({ showSpinner: false });
     this.$router.beforeEach((to, from, next) => {
