@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 import NavLinks from "@theme/components/NavLinks.vue";
 import SearchBox from "@theme/components/SearchBox";
 import DarkThemeButton from "@theme/components/DarkThemeButton";
@@ -51,9 +51,6 @@ export default {
   components: { NavLinks, SearchBox, DarkThemeButton, MenuButton },
   computed: {
     ...mapGetters(["getDarkTheme"])
-  },
-  methods: {
-    ...mapMutations(["toggleDarkTheme"])
   },
   props: ["menu-open"]
 };

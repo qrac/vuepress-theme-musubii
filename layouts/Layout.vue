@@ -1,11 +1,10 @@
 <template>
-  <div class="theme" :class="[pageClasses, getThemeName]" :data-theme="getThemeName">
+  <div class="theme" :class="pageClasses" :data-theme="theme">
     <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu" :menu-open="menuOpen"/>
     <Menu :items="sidebarItems" :menu-open="menuOpen" class="is-desktop-none">
       <slot name="sidebar-top" slot="top"/>
       <slot name="sidebar-bottom" slot="bottom"/>
     </Menu>
-    {{ getThemeName }}
     <main class="main">
       <Home v-if="$page.frontmatter.home"/>
       <Page v-else :sidebar-items="sidebarItems">
@@ -19,7 +18,7 @@
 
 <script>
 import Vue from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 import nprogress from "nprogress";
 import Header from "@theme/components/Header.vue";
 import Footer from "@theme/components/Footer.vue";
@@ -32,7 +31,8 @@ export default {
   components: { Home, Page, Menu, Header, Footer },
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
+      theme: this.getThemeName
     };
   },
   computed: {
@@ -81,6 +81,7 @@ export default {
     }
   },
   mounted() {
+    this.theme = this.getThemeName;
     window.addEventListener("scroll", this.onScroll);
     nprogress.configure({ showSpinner: false });
     this.$router.beforeEach((to, from, next) => {
@@ -95,7 +96,6 @@ export default {
     });
   },
   methods: {
-    ...mapMutations(["toggleDarkTheme"]),
     toggleMenu(to) {
       this.menuOpen = typeof to === "boolean" ? to : !this.menuOpen;
     }
