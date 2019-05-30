@@ -1,5 +1,5 @@
 <template>
-  <div class="theme" :class="pageClasses" :data-theme="getThemeName">
+  <div class="theme" :class="pageClasses" :data-theme="themeName">
     <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu" :menu-open="menuOpen"/>
     <Menu :items="sidebarItems" :menu-open="menuOpen" class="is-desktop-none">
       <slot name="sidebar-top" slot="top"/>
@@ -18,7 +18,7 @@
 
 <script>
 import Vue from "vue";
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 import nprogress from "nprogress";
 import Header from "@theme/components/Header.vue";
 import Footer from "@theme/components/Footer.vue";
@@ -35,7 +35,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getThemeName"]),
+    ...mapState({
+      themeName: state => state.theme.name
+    }),
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
       const { frontmatter } = this.$page;
