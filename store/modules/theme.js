@@ -1,17 +1,24 @@
+import process from "process"
+
 const state = {
-  dark: false,
-  name: "light"
+  theme: "light"
 }
 
 const getters = {
-  getDarkTheme: state => state.dark,
-  getThemeName: state => state.name
+  getTheme: state => state.theme
 }
 
 const mutations = {
-  toggleDarkTheme(state) {
-    ;(state.dark = !state.dark),
-      state.dark ? (state.name = "dark") : (state.name = "light")
+  initTheme(state) {
+    if (process.browser) {
+      state.theme = localStorage.getItem("theme")
+    }
+  },
+  toggleTheme(state) {
+    state.theme === "light" ? (state.theme = "dark") : (state.theme = "light")
+    if (process.browser) {
+      localStorage.setItem("theme", state.theme)
+    }
   }
 }
 

@@ -1,12 +1,12 @@
 <template>
   <div class="toggle-theme-button">
-    <button class="button is-outline is-circle" type="button" @click="toggleDarkTheme">
+    <button class="button is-outline is-circle" type="button" @click="toggleTheme">
       <transition>
         <svg
           class="icon is-sun"
           viewBox="0 0 512 512"
           xmlns="http://www.w3.org/2000/svg"
-          v-if="getDarkTheme"
+          v-if="getTheme === 'dark'"
           key="a"
         >
           <path
@@ -35,10 +35,10 @@ import { mapGetters, mapMutations } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getDarkTheme"])
+    ...mapGetters(["getTheme"])
   },
   methods: {
-    ...mapMutations(["toggleDarkTheme"])
+    ...mapMutations(["toggleTheme"])
   }
 };
 </script>

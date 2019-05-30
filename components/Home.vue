@@ -47,7 +47,7 @@
               class="illust is-hero"
               :src="$withBase(data.hero.imageDark)"
               alt="hero"
-              v-if="getDarkTheme && data.hero.imageDark"
+              v-if="getTheme === 'dark' && data.hero.imageDark"
             >
             <img class="illust is-hero" :src="$withBase(data.hero.image)" alt="hero" v-else>
           </div>
@@ -109,7 +109,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["getDarkTheme"]),
+    ...mapGetters(["getTheme"]),
     data() {
       return this.$page.frontmatter;
     },

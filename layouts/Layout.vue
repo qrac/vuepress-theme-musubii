@@ -1,5 +1,5 @@
 <template>
-  <div class="theme" :class="pageClasses" :data-theme="themeName">
+  <div class="theme" :class="pageClasses" :data-theme="getTheme">
     <Header v-if="shouldShowNavbar" @toggle-menu="toggleMenu" :menu-open="menuOpen"/>
     <Menu :items="sidebarItems" :menu-open="menuOpen" class="is-desktop-none">
       <slot name="sidebar-top" slot="top"/>
@@ -18,7 +18,7 @@
 
 <script>
 import Vue from "vue";
-import { mapState } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import nprogress from "nprogress";
 import Header from "@theme/components/Header.vue";
 import Footer from "@theme/components/Footer.vue";
@@ -35,9 +35,7 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      themeName: state => state.theme.name
-    }),
+    ...mapGetters(["getTheme"]),
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
       const { frontmatter } = this.$page;
@@ -81,6 +79,9 @@ export default {
       ];
     }
   },
+  created: function() {
+    this.initTheme();
+  },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
     nprogress.configure({ showSpinner: false });
@@ -96,6 +97,7 @@ export default {
     });
   },
   methods: {
+    ...mapMutations(["initTheme"]),
     toggleMenu(to) {
       this.menuOpen = typeof to === "boolean" ? to : !this.menuOpen;
     }

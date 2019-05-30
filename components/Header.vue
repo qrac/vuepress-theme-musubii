@@ -8,7 +8,7 @@
               class="site-title-logo"
               :src="$withBase($site.themeConfig.logoDark)"
               :alt="$siteTitle"
-              v-if="getDarkTheme && $site.themeConfig.logoDark"
+              v-if="getTheme === 'dark' && $site.themeConfig.logoDark"
             >
             <img
               class="site-title-logo"
@@ -50,7 +50,7 @@ import MenuButton from "@theme/components/MenuButton.vue";
 export default {
   components: { NavLinks, SearchBox, DarkThemeButton, MenuButton },
   computed: {
-    ...mapGetters(["getDarkTheme"])
+    ...mapGetters(["getTheme"])
   },
   props: ["menu-open"]
 };
