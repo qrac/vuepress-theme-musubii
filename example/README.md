@@ -8,6 +8,7 @@ hero:
     - シンプルで薄味のレスポンシブ対応CSSフレームワークです。
   image: /img/illust-hero.svg
   imageDark: /img/illust-hero-dark.svg
+library: musubii
 actionText: Getting Started
 actionLink: /getting-started/
 about:
