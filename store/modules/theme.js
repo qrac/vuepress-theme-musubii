@@ -10,7 +10,7 @@ const getters = {
 
 const mutations = {
   initTheme(state) {
-    if (process.browser) {
+    if (process.browser && localStorage.getItem("theme")) {
       state.theme = localStorage.getItem("theme")
     }
   },
