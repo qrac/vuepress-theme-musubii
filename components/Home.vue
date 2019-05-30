@@ -107,7 +107,14 @@
 import musubiiPkg from "musubii/package.json";
 import { mapGetters } from "vuex";
 
+console.log("test");
+
 export default {
+  //mounted() {
+  //const library = this.data.library;
+  //const libraryPkg = await import(library + "/package.json");
+  //console.log(libraryPkg);
+  //},
   computed: {
     ...mapGetters(["getTheme"]),
     data() {
