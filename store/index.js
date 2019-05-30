@@ -11,7 +11,7 @@ const modules = {
 }
 
 function createPersistedStateWrapper(store) {
-  if (process.browser && store) {
+  if (process.browser) {
     createPersistedState({
       key: "vuepress-theme-musubii",
       paths: ["theme.dark", "theme.name"]
