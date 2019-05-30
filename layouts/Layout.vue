@@ -79,10 +79,8 @@ export default {
       ];
     }
   },
-  created: function() {
-    this.initTheme();
-  },
   mounted() {
+    this.initTheme();
     window.addEventListener("scroll", this.onScroll);
     nprogress.configure({ showSpinner: false });
     this.$router.beforeEach((to, from, next) => {
