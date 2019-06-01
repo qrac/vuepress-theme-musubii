@@ -150,5 +150,8 @@ module.exports = {
         }
       ]
     }
+  },
+  define: {
+    libraryPkg: "musubii/package.json"
   }
 }

@@ -29,15 +29,15 @@
             </div>
             <p
               class="text is-light is-center is-sm is-strong is-font-sans-en"
-              v-if="libraryPkg.repository"
+              v-if="libraryPkgFile"
             >
               <i class="fab fa-github" aria-hidden="true"></i>
-              <span class="text" v-if="libraryPkg.version">v{{ libraryPkg.version }}・</span>
-              <a class="text is-link-reverse" :href="libraryPkg.repository">
+              <span class="text" v-if="libraryPkgFile.version">v{{ libraryPkgFile.version }}・</span>
+              <a class="text is-link-reverse" :href="libraryPkgFile.repository">
                 <span class="text">Repository</span>
               </a>
-              <span class="text" v-if="libraryPkg.repository">・</span>
-              <a class="text is-link-reverse" :href="libraryPkg.repository + '/releases'">
+              <span class="text" v-if="libraryPkgFile.repository">・</span>
+              <a class="text is-link-reverse" :href="libraryPkgFile.repository + '/releases'">
                 <span class="text">Releases</span>
               </a>
             </p>
@@ -112,12 +112,13 @@ export default {
     data() {
       return this.$page.frontmatter;
     },
-    libraryPkg() {
-      const library = this.data.library;
-      const libraryPkg = require(`../node_modules/${library}/package.json`);
-      console.log(libraryPkg);
-      console.log(require.resolve("hoge"));
-      return libraryPkg;
+    libraryPkgFile() {
+      if (typeof libraryPkg !== "undefined") {
+        const libraryPkgFile = require(`${libraryPkg}`);
+        //console.log(libraryPkg);
+        //console.log(libraryPkgFile);
+        return libraryPkgFile;
+      }
     },
     actionLink() {
       return {
