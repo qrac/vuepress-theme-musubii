@@ -29,15 +29,15 @@
             </div>
             <p
               class="text is-light is-center is-sm is-strong is-font-sans-en"
-              v-if="musubiiPkg.repository"
+              v-if="libraryPkg.repository"
             >
               <i class="fab fa-github" aria-hidden="true"></i>
-              <span class="text" v-if="musubiiPkg.version">v{{ musubiiPkg.version }}・</span>
-              <a class="text is-link-reverse" :href="musubiiPkg.repository">
+              <span class="text" v-if="libraryPkg.version">v{{ libraryPkg.version }}・</span>
+              <a class="text is-link-reverse" :href="libraryPkg.repository">
                 <span class="text">Repository</span>
               </a>
-              <span class="text" v-if="musubiiPkg.repository">・</span>
-              <a class="text is-link-reverse" :href="musubiiPkg.repository + '/releases'">
+              <span class="text" v-if="libraryPkg.repository">・</span>
+              <a class="text is-link-reverse" :href="libraryPkg.repository + '/releases'">
                 <span class="text">Releases</span>
               </a>
             </p>
@@ -104,7 +104,6 @@
 </template>
 
 <script>
-import musubiiPkg from "musubii/package.json";
 import { mapGetters } from "vuex";
 
 export default {
@@ -113,8 +112,12 @@ export default {
     data() {
       return this.$page.frontmatter;
     },
-    musubiiPkg() {
-      return musubiiPkg;
+    libraryPkg() {
+      const library = this.data.library;
+      const libraryPkg = require(`../node_modules/${library}/package.json`);
+      console.log(libraryPkg);
+      console.log(require.resolve("hoge"));
+      return libraryPkg;
     },
     actionLink() {
       return {
