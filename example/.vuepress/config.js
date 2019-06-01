@@ -152,6 +152,6 @@ module.exports = {
     }
   },
   define: {
-    libraryPkg: "../node_modules/musubii/package.json"
+    libraryPkg: "musubii/package.json"
   }
 }
