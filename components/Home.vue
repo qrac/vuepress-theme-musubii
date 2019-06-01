@@ -106,6 +106,8 @@
 <script>
 import { mapGetters } from "vuex";
 
+const libraryPkgFile = require(`${libraryPkg}`);
+
 export default {
   computed: {
     ...mapGetters(["getTheme"]),
@@ -113,10 +115,7 @@ export default {
       return this.$page.frontmatter;
     },
     libraryPkgFile() {
-      if (typeof libraryPkg !== "undefined") {
-        const libraryPkgFile = require(`${libraryPkg}`);
-        //console.log(libraryPkg);
-        //console.log(libraryPkgFile);
+      if (typeof libraryPkgFile !== "undefined") {
         return libraryPkgFile;
       }
     },
