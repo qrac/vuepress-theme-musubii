@@ -27,6 +27,9 @@
                 <span class="text is-weight-900 is-font-sans-en">{{ data.actionText }}</span>
               </router-link>
             </div>
+            <div class="box" v-if="data.libraryPkgInfo">
+              <libraryPkgInfo/>
+            </div>
             <p
               class="text is-light is-center is-sm is-strong is-font-sans-en"
               v-if="libraryPkgFile"
@@ -105,19 +108,14 @@
 
 <script>
 import { mapGetters } from "vuex";
-
-const libraryPkgFile = require(`${libraryPkg}`);
+import libraryPkgInfo from "@theme/components/libraryPkgInfo.vue";
 
 export default {
+  components: { libraryPkgInfo },
   computed: {
     ...mapGetters(["getTheme"]),
     data() {
       return this.$page.frontmatter;
-    },
-    libraryPkgFile() {
-      if (typeof libraryPkgFile !== "undefined") {
-        return libraryPkgFile;
-      }
     },
     actionLink() {
       return {

@@ -10,6 +10,7 @@ hero:
   imageDark: /img/illust-hero-dark.svg
 actionText: Getting Started
 actionLink: /getting-started/
+libraryPkgInfo: true
 about:
   heading: 腹が減ってはコードが書けぬ！
   texts1:
