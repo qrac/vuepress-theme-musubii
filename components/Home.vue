@@ -30,20 +30,6 @@
             <div class="box" v-if="data.libraryPkgInfo">
               <libraryPkgInfo/>
             </div>
-            <p
-              class="text is-light is-center is-sm is-strong is-font-sans-en"
-              v-if="libraryPkgFile"
-            >
-              <i class="fab fa-github" aria-hidden="true"></i>
-              <span class="text" v-if="libraryPkgFile.version">v{{ libraryPkgFile.version }}・</span>
-              <a class="text is-link-reverse" :href="libraryPkgFile.repository">
-                <span class="text">Repository</span>
-              </a>
-              <span class="text" v-if="libraryPkgFile.repository">・</span>
-              <a class="text is-link-reverse" :href="libraryPkgFile.repository + '/releases'">
-                <span class="text">Releases</span>
-              </a>
-            </p>
           </div>
           <div class="column" v-if="data.hero.image">
             <img

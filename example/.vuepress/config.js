@@ -88,6 +88,8 @@ module.exports = {
     lastUpdated: "Last Updated",
     logo: "/img/logo.svg",
     logoDark: "/img/logo-dark.svg",
+    copylightName: "QRANOKO",
+    copylightUrl: "https://qranoko.jp",
     nav: [
       {
         text: "Getting Started",

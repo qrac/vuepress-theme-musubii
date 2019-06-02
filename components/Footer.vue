@@ -1,16 +1,14 @@
 <template>
-  <footer class="footer">
+  <footer class="footer" v-if="$site.themeConfig.copylightName">
     <div class="inner">
-      <p class="text is-light is-strong is-center is-font-sans-en" v-if="musubiiPkg.license">
-        <span class="text">License:&nbsp;</span>
-        <span class="text">{{ musubiiPkg.license }}</span>
-        &nbsp;/&nbsp;
+      <p class="text is-light is-strong is-center is-font-sans-en">
         <span class="text">©&nbsp;</span>
         <a
           class="text is-link-reverse"
-          :href="musubiiPkg.organization.url"
-          v-if="musubiiPkg.organization.url"
-        >{{ musubiiPkg.organization.name }}</a>
+          :href="$site.themeConfig.copylightUrl"
+          v-if="$site.themeConfig.copylightUrl"
+        >{{ $site.themeConfig.copylightName }}</a>
+        <span class="text" v-else>{{ $site.themeConfig.copylightName }}</span>
         <span class="text">&nbsp;{{ copylightYear }}</span>
       </p>
     </div>
@@ -18,13 +16,8 @@
 </template>
 
 <script>
-import musubiiPkg from "musubii/package.json";
-
 export default {
   computed: {
-    musubiiPkg() {
-      return musubiiPkg;
-    },
     copylightYear() {
       const _now = new Date();
       return _now.getFullYear();
