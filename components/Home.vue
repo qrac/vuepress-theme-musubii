@@ -122,10 +122,6 @@ export default {
         link: this.data.actionLink,
         text: this.data.actionText
       };
-    },
-    copylightYear() {
-      const _now = new Date();
-      return _now.getFullYear();
     }
   }
 };
