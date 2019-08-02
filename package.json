@@ -38,12 +38,12 @@
     "musubii": "^7.0.0-alpha.36"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.47",
+    "@vuepress/plugin-google-analytics": "^1.0.3",
     "node-sass": "^4.12.0",
-    "pug": "^2.0.3",
+    "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.1.0",
-    "vuepress": "^1.0.0-alpha.48",
+    "vuepress": "^1.0.3",
     "vuex": "^3.1.1"
   }
 }
